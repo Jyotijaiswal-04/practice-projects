@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+         header {
+            width: 100%;
+            background-color: whitesmoke;
+            color: black;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5px;
+
+        }
+
+        .ul1 {
+            width: 80%;
+            display: flex;
+            justify-content: flex-end;
+
+            align-items: center;
+            list-style-type: none;
+            gap: 25px;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        /* .......................................END NAVBAR......................   */
+        #sec1{
+            width: 100%;
+            min-height: 60vh;
+            background-image: url(https://png.pngtree.com/background/20210717/original/pngtree-point-lighting-technology-background-point-blue-picture-image_1437499.jpg);
+            background-repeat: no-repeat;
+        background-size: cover;
+        /* opacity: 0.8; */
+        margin-bottom: 70px;
+        }
+        #sec2{
+            width: 100%;
+            min-height: 80vh;
+            display: flex;
+            justify-content:space-around;
+            
+            
+        }
+        .d1{
+            height: 300px;
+            width: 300px;
+            transition: all 0.3s ease;;
+        }
+        .d1:hover{
+        transform: scale(1,1.1);
+
+    } 
+        .d2{
+         transition: all 0.3s ease;;
+         
+        }
+        .d2:hover{
+         transform: scale(1,1.1); 
+        
+    } 
+
+        #sec3{
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            background-color:#e0ffff;
+            transition: all 0.3s ease;;
+            
+        }
+        #sec3:hover{
+            transform: scale(1,1.1);
+            
+        }
+        .a1{
+            position: relative;
+            height: 300px;
+            width: 400px;
+            /* background-color: aqua; */
+            background-image: url(https://static.vecteezy.com/system/resources/thumbnails/023/070/638/small_2x/office-space-in-the-evening-backdrop-created-with-generative-ai-photo.jpg);
+            margin: 50px;
+        }
+        .a2{
+            position: relative;
+            height: 170px;
+            width: 300px;
+            background-color:cadetblue;
+            top:300px;
+            right: 395px;
+        }
+        .a3{
+            position: relative;
+            height: 350px;
+            width: 380px;
+            background-color:whitesmoke;
+            top:100px;
+            right: 380px;
+            box-shadow: inset;
+        }
+        #sec4{
+            width: 100%;
+            min-height: 100vh;
+         }
+         .maind{
+            display: flex;
+            justify-content: center;
+         }
+        .sec4d1{
+            /* height: 300px;
+            width: 250px;
+            border: 2px solid red; */
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: end;
+            margin-right: 10px;
+        }
+        .sec4d2{
+            /* height: 300px;
+            width: 250px;
+            border: 2px solid red; */
+            display: flex;
+            flex-direction: column;
+        }
+        .btn{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+/* ............................................START FOOTER------------------ */
+        footer {
+            
+            width: 100%;
+            background-color: black;
+
+
+
+        }
+
+        .fdiv {
+            width: 100%;
+            min-height: 40vh;
+            display: flex;
+            background-color: black;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+        .ft1 {
+            height: 300px;
+            width: 250px;
+            /* border: 5px solid white; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ft2 {
+            height: 300px;
+            width: 250px;
+            /* border: 5px solid white; */
+        }
+
+        .ft3 {
+            height: 300px;
+            width: 250px;
+            /* border: 5px solid white; */
+        }
+
+        .se:hover {
+            background-color: aqua;
+        }
+
+        /* .s1{
+        width: 300px;
+        height: 100px;
+       } */
+
+
+
+
+
+
+
+
+
+        @media(max-width:400px) {
+            nav {
+                flex-direction: column;
+            }
+
+            ul {
+                justify-content: center;
+            }
+        }
+/* .....................................endfooter---------------------------------- */
+    </style>
+</head>
+<body>
+    <header>
+
+        <nav>
+            <img src="https://arabicitmedia.com/wp-content/uploads/2024/08/Arabic-IT-Media-25-300x300-1.png"
+                height='50px' width="70px">
+            <ul class="ul1">
+                <li>
+                    <a href="arabic.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="services.html" id=>Services</a>
+
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+                <li>
+                    <span class=" se bg-warning p-3" id="i1">Call:022-35750090</span>
+                    <!-- <button class="btn btn-outline-info" type="submit">call</button> "Call:022-35750090" -->
+
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+        <section id="sec1">
+            <p class=" p h1 pt-4 mt-5 text-danger  text-center fw-bold">ABOUT US</p><br>
+            <p class="h2 ms-5 fw-bold">We work for our customers .</p>
+            <p class="ms-5 text-white fw-bold">We are a Media Company with a IT angle with a smart mix of Talent, Professionalism And Marketing know-how.<br> We Craft Marketing Vision as well as other requirements of Our Customers from concept to Implementation, from thought to Masterpiece, minus the typical other solution providers hassle.</p>
+    </section>
+
+    <section id="sec2">
+        <div class="d1">
+            <h1 class="text-info">We work for our customers .</h1>
+            <p>We are a Media Company with a IT angle with a smart mix of Talent, Professionalism And Marketing know-how. We Craft Marketing Vision as well as other requirements of Our Customers from concept to Implementation, from thought to Masterpiece, minus the typical other solution providers hassle.<br><br>
+
+                Our team takes the time to listen, learn, and collaborate closely with you at every step of the journey. Whether it’s a web development project, digital marketing strategy, or production </p>
+        </div>
+        <div class="d2"><img src="https://arabicitmedia.com/wp-content/uploads/2024/09/campaign-creators-qCi_MzVODoU-unsplash.jpg"></div>
+
+    </section>
+    <section id="sec3">
+        <div class="a1"></div>
+        <div class="a2">
+            <h2 class="text-center mt-4 text-white">People talk</h2>
+            <p class="text-center text-white " >Engage with us and interact with the world at large.</p>
+        </div>
+        <div class="a3" >
+            <h1 class="text-center h2 mt-5 p-2 text-info">Dedicated to Delivering for You .</h1>
+            <p class="ps-3 pe-3 pt-3 ">We pride ourselves on delivering not just high-quality work, but also an outstanding customer experience. From the initial consultation to post-project support, our goal is to build long-term relationships based on trust, reliability, and mutual success.</p>
+            
+            <p></p>
+        </div>
+        
+        
+
+    </section>
+    <section id="sec4">
+        <p class="text-center h1 p-5 text-info">Why Choose us ?</p>
+        <div class="maind">
+        <div class="sec4d1">
+            <button class="btn btn-info"><h5 class="text-center text-white">></h5></button>
+            <button class="btn btn-info"><h5 class="text-center text-white">></h5></button>
+            <button class="btn btn-info"><h5 class="text-center text-white">></h5></button>
+            <button class="btn btn-info"><h5 class="text-center text-white">></h5></button>
+            <button class="btn btn-info"><h5 class="text-center text-white">></h5></button>
+            <button class="btn btn-info"><h5 class="text-center text-white">></h5></button>
+        </div>
+        <div class="sec4d2">
+            <p class="h5 text-info">Technology driven services</p>
+            <p>Our services are the evidence of neoteric technology enactment.</p>
+            <p class="h5 text-info">High end security</p>
+            <p>Being at the top, security is the foremost essence in our solution to keep business confidential.</p>
+            <p class="h5 text-info">Automation</p>
+            <p>Automated solutions to reduce red tape, delays and fix responsibilities for efficient, effective and economical solutions.</p>
+            <p class="h5 text-info">Mobility</p>
+            <p>Mobility is the root of digitization. And we keep Mobility at height for business magnification.</p>
+            <p class="h5 text-info">Customization</p>
+            <p>Horses for Courses is our funda. Customized solutions are what we are excellent at.</p>
+            <p class="h5 text-info">Experience</p>
+            <p>Experience is the icing on the cake that differentiates us from the rest.</p>
+        </div>
+        </div>
+
+    </section>
+
+    <!-- ..............................................footer............................................... -->
+    <footer>
+        <!-- <p>Author: Hege Refsnes<br>
+        <a href="mailto:hege@example.com">hege@example.com</a></p> -->
+        <div class="fdiv">
+            <div class="ft1"><img
+                    src="https://arabicitmedia.com/wp-content/uploads/2024/08/Arabic-IT-Media-25-300x300-1.png"
+                    height="150px" width="150px"></div>
+            <div class="ft2">
+                <p class="text-white text-center h1 pe-3">Quick Links</p><br><br>
+                <p><a class="text-info" href="arabic.html">Home</a></p>
+                <p><a class="text-info" href="about.html">About us</a></p>
+                <p><a class="text-info" href="services.html">Services</a></p>
+                <p><a class="text-info" href="blog.html">Blog</a></p>
+                <p><a class="text-info" href="contact.html">Contact</a></p>
+            </div>
+            <div class="ft3">
+                <p class="text-white text-center h1">Social Media</p><br><Br><br>
+                <span><a href="https://arabicitmedia.com/"><img
+                            src="https://img.icons8.com/?size=96&id=uLWV5A9vXIPu&format=png" height="30px" width="30px">
+                    </a></span>&nbsp;&nbsp;
+                <span><a href="https://arabicitmedia.com/"><img
+                            src="https://img.icons8.com/?size=96&id=32323&format=png" height="30px" width="30px">
+                    </a></span>&nbsp;&nbsp;
+                <span><a href="https://arabicitmedia.com/"><img
+                            src="https://img.icons8.com/?size=96&id=17949&format=png" height="30px" width="40px">
+                    </a></span>&nbsp;&nbsp;
+                <span><a href="https://arabicitmedia.com/"><img
+                            src="https://img.icons8.com/?size=96&id=19318&format=png" height="40px" width="40px">
+                    </a></span>
+
+            </div>
+
+        </div>
+        <div class=" s1 w-100 bg-blacl text-white text-center h-25">
+            <p>Copyright © 2024 arabicitmedia.com | Powered by arabicitmedia.com</p>
+        </div>
+
+    </footer>
+    
+</body>
+</html>

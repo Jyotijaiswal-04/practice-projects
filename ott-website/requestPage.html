@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        header {
+    background-color:black;
+    /* background: linear-gradient(90deg, rgb(0, 0, 0), rgb(128, 0, 0), rgb(255, 0, 0)); */
+
+
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    color: #ffffff;
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+ul.a  {
+  list-style-type: disc;
+  /* color: crimson; */
+}
+.a a{
+color: crimson;
+ text-decoration: none; 
+}
+.a a:hover{
+    text-decoration: underline;
+    color: red;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+body{
+    background-color: #cad1d1;
+}
+.p1{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 2;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap:10px;
+}
+input{
+    display: flex;
+    padding: 5px;
+}
+.p2{
+    font-size: 12px;
+}
+.recaptcha {
+    display: flex;
+    
+}
+.link .btn{
+      /* padding: 2px; */
+      padding-top: 1px;
+      padding-bottom: 1px;
+      font-size: 15px;
+    }
+
+
+
+
+
+
+
+
+
+footer {
+            background-color: #121212;
+            color: #666;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: 80px;
+        }
+
+        footer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px){
+    header{
+        flex-direction: column;
+        .btn{
+            background-color: white;
+        }
+    }
+    .navbar-logo img{
+        height: 30px;
+        width: 90px;
+    }
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="New.png" height="30px" width="180px">
+        </div>
+        <div class="link">
+            <a href="ott.html"><button class="btn mt-2 btn-outline-danger rounded-pill">Home</button></a>
+            <a href="get1.html"><button class="btn mt-2 btn-outline-danger rounded-pill">Join tritech</button></a>
+            <a href="signInPage.html"><button type="button" class="btn btn-light mt-2 rounded-pill">Sign In</button> </a>
+
+        </div>
+        
+    </header>
+    <div class="container mt-5  border-bottom border-bottom border-danger d-flex flex-column">
+        <h2>Request TV shows or movies</h2>
+        <p class="p1">Have a TV show or movie you'd like to see on Netflix? Let us know about it below.<br>
+
+            Wondering why a title is no longer available? Visit Why do TV shows and movies leave Netflix?<br>
+            
+            For help finding a title, visit How do I find TV shows and movies on Netflix?</p>
+            <form >
+                <input type="text" placeholder="Title Suggestions 1:">
+                <input type="text" placeholder="Title Suggestions 2:">
+                <input type="text" placeholder="Title Suggestions 3:"><br>
+                <div class="recaptcha">
+                <div class="g-recaptcha d-flex" data-sitekey="6LeRUaEqAAAAAH8Nj7EuZeD2s_H7gNNyyImFDwSL" ></div></div>
+                <button class="btn btn-dark w-50 mt-1 mb-5 ">submit Suggestion</button>
+            </form>
+    </div>
+    <div class="container mt-5 d-flex-sm">
+        <h6>What if I've already requested a TV show or movie?</h6>
+        <p class="p2">If you've already submitted a request, you can sit back and relax - we've received your feedback.
+
+            We can't respond to individual requests, but you can keep up on new titles coming to Netflix by following us on social media and signing up for our "Now on Netflix" emails.</p>
+    </div>
+    
+
+
+
+    <footer class="mt-5">
+        <p>
+            Questions? <a href="contact.html">Contact us</a>.
+        </p>
+        <p>
+            © 2024 Tritech, Inc. All rights reserved.
+        </p>
+    </footer>
+
+    
+</body>
+</html>

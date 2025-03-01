@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Sidebar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            background-image: url(https://i.ytimg.com/vi/acSQHN3cNKE/maxresdefault.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            /* background-color: #333; */
+            /* color: white; */
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color:black;
+            /* border-bottom: 1px solid #444; */
+        }
+
+        .sidebar a:hover {
+            /* background-color: #575757; */
+        }
+
+        /* Main content styles */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .content {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+        }
+        .d1{
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap:600px;
+            top:300px;
+            left: 300px;
+            
+        }
+        a{
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            color :aliceblue;
+        }
+       .ser{
+        margin: 0;
+            font-family: Arial, sans-serif;
+            /* background: linear-gradient(to bottom, #3a6186, #89253e);     Gradient background */
+            height: 100vh;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            position: relative;
+        bottom: 300px;
+        left: 400px;
+       }
+       .search-container {
+            position: relative;
+            width: 400px;
+        }
+
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+            color: #fff; /* White text color */
+            outline: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .search-container input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.7); /* Semi-transparent placeholder text */
+        }
+
+        .search-container input[type="text"]:focus {
+            background-color: rgba(255, 255, 255, 0.4); /* Slightly less transparent on focus */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glow effect */
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ser">
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+        </div>
+    
+    <div class="sidebar">
+        <h2 style="text-align: center; padding: 15px; border-bottom: 2px solid #444;">My Sidebar</h2>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">services</a>
+
+        </div>
+       
+        <div class="d1">
+            <a href=""> Trailers</a>
+            <a href=""> view all &nbsp;  &nbsp;></a>
+        </div>
+        </body>
+

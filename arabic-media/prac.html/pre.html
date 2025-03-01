@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix-Style Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e50914;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #e50914;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://i.pinimg.com/736x/19/8b/2f/198b2f01e73b905772279616eccc7c65.jpg') no-repeat center center/cover;
+            display: flex;
+            /* justify-content: center; */
+             align-items: center; 
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), #000);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-content .btn {
+            padding: 15px 30px;
+            background: #e50914;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .hero-content .btn:hover {
+            background: #b00710;
+        }
+
+        /* Trending Section */
+        .trending {
+            padding: 40px;
+        }
+
+        .trending h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .trending .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #111;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+        .link{
+            
+            border-radius: 20px;
+            padding: 5px;
+        }
+        /* -------------------------------------------------tranding------------------------------------------------ */
+        .trending-section {
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    
+
+  }
+  .trending-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* text-align: center; */
+  }
+  .swiper-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container1 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container2 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container3 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container4 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container5 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container6 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+  } 
+
+  .swiper-container7 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+  } 
+  
+   .nevi{
+    position: reletive;
+   }
+  .swiper-button-next{
+    position: absolute;
+    top: 125px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    right: 25px;
+}
+.swiper-button-prev {
+  position: absolute;
+  left: 10px; /* Left me dikhane ke liye */
+  top: 50%; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nevi1{
+    position: reletive;
+   }
+   .nevi1 .swiper-button-next{
+    position: absolute;
+    top: 1230px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi1 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 1250px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 12px;
+  font-weight: bold;
+    color: white;
+}
+.nevi2{
+    position: reletive;
+   }
+   .nevi2 .swiper-button-next{
+    position: absolute;
+    top: 1631px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi2 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 1650px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.nevi3{
+    position: reletive;
+   }
+   .nevi3 .swiper-button-next{
+    position: absolute;
+    top: 2031px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi3 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 2046px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 12px;
+  font-weight: bold;
+    color: white;
+}
+
+.nevi4{
+    position: reletive;
+   }
+   .nevi4 .swiper-button-next{
+    position: absolute;
+    top: 2427px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi4 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 2444px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 12px;
+  font-weight: bold;
+    color: white;
+}
+
+.nevi5{
+    position: reletive;
+   }
+   .nevi5 .swiper-button-next{
+    position: absolute;
+    top: 2822px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi5 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 2840px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 12px;
+  font-weight: bold;
+    color: white;
+}
+
+.nevi6{
+    position: reletive;
+   }
+   .nevi6 .swiper-button-next{
+    position: absolute;
+    top: 3220px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi6 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 3240px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 12px;
+  font-weight: bold;
+    color: white;
+}
+
+.nevi7{
+    position: reletive;
+   }
+   .nevi7 .swiper-button-next{
+    position: absolute;
+    top: 3620px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi7 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 3638px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 12px;
+  font-weight: bold;
+    color: white;
+}
+
+
+
+
+
+    .swiper-wrapper {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.5%; /* This ensures 8 slides fit in one row (100% / 8 = 12.5%) */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .swiper-slide img {
+    width: 95%;
+    height: 90%;
+    object-fit: cover;
+  }
+  .swiper-slide h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+  }
+  span{
+    font-size: 13px;
+  }
+  /* .swiper-container1 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    
+  }
+  .swiper-container1 .swiper-slide img {
+    width: 95%;
+    height: 90%;
+    object-fit: cover;
+  }
+  .swiper-container2 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    
+  } */
+  .swiper-pagination {
+  visibility: hidden; /* Dots are hidden, but space is still reserved */
+}
+ 
+  span{
+    font-size: 13px;
+  }
+  select{
+    padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #666;
+  }
+  
+  @media screen and (max-width: 768px){
+    header{
+        flex-direction: column;
+        gap: 4px;
+        .btn{
+            background-color: white;
+            margin: 5px;
+        }
+        #ab{
+          margin-left: 50px;
+        }
+    }
+    .nevi .swiper-button-next{
+    /* position: absolute; */
+    top: 140px;
+    
+}
+.nevi .swiper-button-prev {
+  /* position: absolute; */
+  top: 55%;
+}
+.nevi1 .swiper-button-next{
+    /* position: absolute; */
+    top: 1270px;
+    
+}
+.nevi1 .swiper-button-prev {
+  /* position: absolute; */
+  top: 1290px;
+}
+.nevi2 .swiper-button-next{
+    /* position: absolute; */
+    top: 1670px;
+    
+}
+.nevi2 .swiper-button-prev {
+  /* position: absolute; */
+  top: 1690px;
+}
+    .nevi3 .swiper-button-next{
+    /* position: absolute; */
+    top: 2095px;
+    
+}
+.nevi3 .swiper-button-prev {
+  /* position: absolute; */
+  top: 2105px;
+}
+.nevi4 .swiper-button-next{
+    /* position: absolute; */
+    top: 2522px;
+    
+}
+.nevi4 .swiper-button-prev {
+  /* position: absolute; */
+  top: 2544px;
+}
+.nevi5 .swiper-button-next{
+    /* position: absolute; */
+    top: 2917px;
+    
+}
+.nevi5 .swiper-button-prev {
+  /* position: absolute; */
+  top: 2940px;
+}
+
+.nevi6 .swiper-button-next{
+    /* position: absolute; */
+    top: 3325px;
+    
+}
+.nevi6 .swiper-button-prev {
+  /* position: absolute; */
+  top: 3350px;
+}
+.nevi7 .swiper-button-next{
+    /* position: absolute; */
+    top: 3735px;
+    
+}
+.nevi7 .swiper-button-prev {
+  /* position: absolute; */
+  top: 3760px;
+}
+
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="https://tri-techmedia.com/wp-content/uploads/2024/08/cropped-WhatsApp_Image_2024-08-21_at_18.12.19-removebg-preview-300x160.png" height="40px" width="90px">
+        </div>
+        <div class="link">
+            <a href="#" ><button class="btn mt-0 btn-outline-danger rounded-2">Home</button></a>
+            <a href="#"><button class="btn mt-0 btn-outline-danger rounded-2">Join tritech</button></a>
+            <a><button type="button" class="btn btn-light mt-0 rounded-2" id="ab">Sign In</button> </a>
+
+        </div>
+        
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Only On Netflix</h1>
+            <p>Netflix is the home of amazing original programming that you can’t find anywhere else. Movies, TV shows, specials and more, all tailored specifically to you.</p>
+            <p>Watch anywhere. Cancel anytime.</p>
+            <button class="btn">Get Started</button>
+        </div>
+    </div>
+
+    <!-- Trending Section -->
+    <div class="trending-section">
+        <div class="trending-title">TV Comedies</div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide  ">
+              <img src="https://artworks.thetvdb.com/banners/series/310679/posters/60212baf6e756.jpg" alt="Trending 1">
+             
+             
+            </div>
+            
+            <div class="swiper-slide">
+              <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRY5M-yIaWksJHYBSbbGFAVgFZV2YmENbsqR6VoujcD11Y_2qyR5ARNpT1th_C6EIFCRF26" alt="Trending 2">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://m.media-amazon.com/images/M/MV5BNWNmYmQ2NzctNTA1NS00NGU2LThjOTQtYTgxNmUyYmNjODYyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 3">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://www.justwatch.com/images/poster/309462804/s718/my-demon.jpg" alt="Trending 4">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://www.justwatch.com/images/poster/320425339/s718/moms-friends-son.jpg" alt="Trending 5">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://m.media-amazon.com/images/M/MV5BZmYyYTczZGYtMmM4MC00OWRiLWFlN2ItZTA4ODVlZjljOWNjXkEyXkFqcGc@._V1_.jpg" alt="Trending 6">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://m.media-amazon.com/images/M/MV5BMDdhOTRhNjEtMGJkNi00ZDczLTliMDktNzFjMWIzYThhMDIxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 7">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://i.ebayimg.com/images/g/ANYAAOSwTOZfUKvd/s-l1200.jpg" alt="Trending 8">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://i.ebayimg.com/images/g/FxEAAOSw8vxjvlMM/s-l1200.jpg" alt="Trending 9">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://m.media-amazon.com/images/M/MV5BYjExMzg4MTAtZGM5OC00Njc3LWExYjctYjQ4YWJjZWYwYjViXkEyXkFqcGc@._V1_.jpg" alt="Trending 10">
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+<!-- --------------------------------------------------Hindi-language  Movies------------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">Hindi-Language Movies</div>
+        <div class="swiper-container1">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column ">
+              <img src="https://stat4.bollywoodhungama.in/wp-content/uploads/2024/10/Do-Patti-12-322x402.jpg" alt="Trending 1">
+              <span class="mt-2 pb-2">Do patti</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column ">
+              <img src="https://m.media-amazon.com/images/M/MV5BYzZhNWEzNTktMDA1YS00ZmYyLTkwNjgtYTJiMmU2YjZiYjBhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 2">
+                <span class="mt-2 pb-2">Sikandar ka Muqaddar</span>
+              </div>
+              <div class="swiper-slide d-flex flex-column ">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSEFAoyf_gbsZA5geXj4GFyMgRT_8c-FifugilumIK-49tDkYlSxLg3Y97uY6qFcJbiQ0o" alt="Trending 3">
+                <span class="mt-2 pb-2">Sector 36</span>
+              </div>
+              <div class="swiper-slide d-flex flex-column ">
+                <img src="https://upload.wikimedia.org/wikipedia/en/e/e7/Wild_Wild_Punjab.jpg" alt="Trending 4">
+                <span class="mt-2 pb-2">Wild Wild Punjab</span>
+              </div>
+              <div class="swiper-slide d-flex flex-column ">
+                <img src="https://m.media-amazon.com/images/M/MV5BM2ZjMmVlMzEtNDYxNC00NTI2LTkzZmEtZTJjOGQ4MjMyNjgyXkEyXkFqcGc@._V1_.jpg" alt="Trending 5">
+                <span class="mt-2 pb-2">Maharaj</span>
+              </div>
+              <div class="swiper-slide d-flex flex-column ">
+                <img src="https://artworks.thetvdb.com/banners/series/310679/posters/60212baf6e756.jpg" alt="Trending 6">
+                <span class="mt-2 pb-2">Kapil Sharma</span>
+              </div>
+              <div class="swiper-slide d-flex flex-column ">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/be/Phir_Aayi_Hasseen_Dillruba.jpg" alt="Trending 7">
+                <span class="mt-2 pb-2">Phir Aayi Hasseen dilruba</span>
+              </div>
+              <div class="swiper-slide d-flex flex-column ">
+                <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Murder_Mubarak_poster.jpg" alt="Trending 8">
+                <span class="mt-2 pb-2">Murder Mubarak</span>
+              </div>
+              <div class="swiper-slide d-flex flex-column ">
+                <img src="https://anandkumarrsonfilms.com/wp-content/uploads/2022/08/darlings-poster.jpg" alt="Trending 9">
+                <span class="mt-2 pb-2">Darlings</span>
+              </div>
+              <div class="swiper-slide d-flex flex-column ">
+                <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3uGw5MEpVZtdMgJFUlyOD6s4szcRdsnonv1yvzHXhHweUR__wjMbrUXvmPfqi9Z0suXBa" alt="Trending 10">
+                <span class="mt-2 pb-2">Gunjan Saxena</span>
+              </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi1">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+<!-- ------------------------------------------------us tv shows---------------------------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">US TV Shows</div>
+        <div class="swiper-container2">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQnoyELeXJFybyGI6hyetkMQvR-5fSPO-DyA&s" alt="Trending 1">
+              <span class="mt-2 pb-2">Manifest</span>
+             
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/PYMILH2RwjmJ3uCZyBAEDihOIG4=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvUlRUVjI3OTYxMS53ZWJw" alt="Trending 2">
+              <span class="mt-2 pb-2">Lucifer</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/VRufAQk2OEAZ1QjG47KwN93XuHM=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vODE3MWViYjctYjYzNS00OTcwLThhMTctZTQyYjc1MjNlNjg0LmpwZw==" alt="Trending 3">
+              <span class="mt-2 pb-2">The Lincoln Lawyer</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p20923_p_v10_aa.jpg" alt="Trending 4">
+              <span class="mt-2 pb-2">Lost in Space</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABekVGEJ0F6iwUD4sbNTs1OPPH2n-y6JutfPnMg5e0f8l6vXldLqwwSlHhE1N84oldmwP7PHf5Me70cEJJ2-1LJNInV6XJEJQQHHwt8BdvmLokb6tet_em8aziykwWCa2tGD_8Q.jpg?r=5c7" alt="Trending 5">
+              <span class="mt-2 pb-2">Cobra Kai</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/0xxuABVVuzJrUT130WFHKE-irEg=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vNzUyMTFhOTktZTU4Ni00ODkyLWJlYjQtZTgxYTllZmU2OGM0LmpwZw==" alt="Trending 6">
+              <span class="mt-2 pb-2">Stranger things</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABQJUDtP3lSDiY9ySqhy_I9E2wEZbLm9gaERTay7afjmwCA8_qfKdASI3Bty2gGRIt-7gF1ycGYs7SQY9u0JnHjSA4hTPJHghbFVNOZTMBD2D2nJu-BtLPgAhgchUZqOLw5GfwA.jpg?r=bd4" alt="Trending 7">
+              <span class="mt-2 pb-2">Sweet Tooth</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BMmM1ODg0MjktY2U3ZC00ZDc4LTkxMjAtMzljY2VkZmI3MmE5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 8">
+              <span class="mt-2 pb-2">Snowpiercer</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://images.squarespace-cdn.com/content/v1/5b39608d75f9eef54c62c3f0/1580599323398-MMXFMPQ15JZL2JAJDOBW/MV5BNjZkNzY4M2ItOWY0Ni00Y2ViLWE1NjItOTIyYzZjMzg5M2E1XkEyXkFqcGdeQXVyMTkxNjUyNQ%40%40._V1_.jpg?format=2500w" alt="Trending 9">
+              <span class="mt-2 pb-2">Lockey & Key</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p19575866_b_v13_ab.jpg" alt="Trending 10">
+              <span class="mt-2 pb-2">Dynasty</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi2">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+<!-- ------------------------------------award winning shows-------------------------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">Award-Winning Tv shows</div>
+        <div class="swiper-container3">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BZjkxZWJiNTUtYjQwYS00MTBlLTgwODQtM2FkNWMyMjMwOGZiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 1">
+              <span class="mt-2 pb-2">Money Heist</span>
+             
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BZmYyYTczZGYtMmM4MC00OWRiLWFlN2ItZTA4ODVlZjljOWNjXkEyXkFqcGc@._V1_.jpg" alt="Trending 2">
+              <span class="mt-2 pb-2">Crash Landing on You</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/0xxuABVVuzJrUT130WFHKE-irEg=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vNzUyMTFhOTktZTU4Ni00ODkyLWJlYjQtZTgxYTllZmU2OGM0LmpwZw==" alt="Trending 3">
+              <span class="mt-2 pb-2">Stranger things</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABQJUDtP3lSDiY9ySqhy_I9E2wEZbLm9gaERTay7afjmwCA8_qfKdASI3Bty2gGRIt-7gF1ycGYs7SQY9u0JnHjSA4hTPJHghbFVNOZTMBD2D2nJu-BtLPgAhgchUZqOLw5GfwA.jpg?r=bd4" alt="Trending 4">
+              <span class="mt-2 pb-2">Sweet Tooth</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BMTNjNGU4NTUtYmVjMy00YjRiLTkxMWUtNzZkMDNiYjZhNmViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 5">
+              <span class="mt-2 pb-2">One Piece</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://www.justwatch.com/images/poster/322165330/s718/the-empress.jpg" alt="Trending 6">
+              <span class="mt-2 pb-2">The Empress</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://mykoreankitchen.com/wp-content/uploads/2022/09/Extraordinary-Attorney-Woo-2022-poster-220x330.jpg" alt="Trending 7">
+              <span class="mt-2 pb-2">Extraordinery Attorney Woo</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://puzzlemania-154aa.kxcdn.com/products/2024/puzzle-clementoni-1000-pieces-netflix-squid-game.webp" alt="Trending 8">
+              <span class="mt-2 pb-2">Squid game</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BOWRkY2ZlZTYtNmFiZC00NThjLWFjZTItODZkNjIxZDA2NDU4XkEyXkFqcGc@._V1_.jpg" alt="Trending 9">
+              <span class="mt-2 pb-2">Little women</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/I/817QBrXk5DL._UF1000,1000_QL80_.jpg" alt="Trending 10">
+              <span class="mt-2 pb-2">The Crown</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi3">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+<!-- -------------------------------------------------K-drama-------------------------------------------- -->
+
+      <div class="trending-section">
+        <div class="trending-title">K-Dramas </div>
+        <div class="swiper-container4">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://www.travelistheway.com/wp-content/uploads/2024/03/Queenoftears-dama-coreen.jpg" alt="Trending 1">
+              <span class="mt-2 pb-2">Queen Of Tears</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p25977363_b_v13_aa.jpg" alt="Trending 2">
+              <span class="mt-2 pb-2">My Demon</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://rukminim2.flixcart.com/image/850/1000/kri3xjk0/poster/v/r/z/large-crash-landing-on-you-korean-tv-series-poster-k-drama-original-imag5a4mgz7nmbwa.jpeg?q=90&crop=false" alt="Trending 3">
+              <span class="mt-2 pb-2">Crash Landing on you</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://images.ctfassets.net/4cd45et68cgf/5VqlXa2ugdHjhE5xTohPhP/808d9f8e79ff294fd2b270b80fc6cd5d/ENUS_Mr-Plankton_TeaserKA_Vertical_RGB_PRE.jpg?w=1200" alt="Trending 4">
+              <span class="mt-2 pb-2">Mr. Plankton</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BYjExMzg4MTAtZGM5OC00Njc3LWExYjctYjQ4YWJjZWYwYjViXkEyXkFqcGc@._V1_.jpg" alt="Trending 5">
+              <span class="mt-2 pb-2">Hospital Playlist</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://rukminim2.flixcart.com/image/850/1000/kri3xjk0/poster/1/n/0/large-start-up-poster-start-up-print-startup-print-startup-original-imag5a7ecghhvy2q.jpeg?q=90&crop=false" alt="Trending 6">
+              <span class="mt-2 pb-2">Start-Up</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/Tc_Ht0dmBUAXty4bhlgUVkVdang=/fit-in/352x330/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p28671415_b_v9_ab.jpg" alt="Trending 7">
+              <span class="mt-2 pb-2">When the phone Rings</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://s.isanook.com/mv/0/ui/24/121457/Sanook_A-Business-Proposal-[Netflix-Series].jpg" alt="Trending 8">
+              <span class="mt-2 pb-2">Business Proposal </span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://c8.alamy.com/comp/2DA5DMM/record-of-youth-aka-chungchungirok-poster-from-left-byeon-woo-seok-park-so-dam-park-bo-gum-season-1-premiered-in-the-us-sep-7-2020-photo-netflix-courtesy-everett-collection-2DA5DMM.jpg" alt="Trending 9">
+              <span class="mt-2 pb-2">Records of Youth</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://paintingsbynumberskit.com/wp-content/uploads/2022/05/our-beloved-summer-serie-poster-paint-by-number.jpg" alt="Trending 10">
+              <span class="mt-2 pb-2">Our Beloved Summer</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi4">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+<!-- -------------------------------------------international shows------------------------------------------- -->
+
+      <div class="trending-section">
+        <div class="trending-title">International Tv Dramas</div>
+        <div class="swiper-container5">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://www.movienco.co.uk/carteles-series/2000/2059/001_p.jpg" alt="Trending 1">
+              <span class="mt-2 pb-2">Berlin</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/0Vfn5gE3Kv0xit0Td7VEBbCl14g=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjkyNzEyMS53ZWJw" alt="Trending 2">
+              <span class="mt-2 pb-2">Elite</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://i.pinimg.com/originals/39/10/f1/3910f14c87b70b0769b6ab489f308ba2.jpg" alt="Trending 3">
+              <span class="mt-2 pb-2">Strong Girl Naam-Soon</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://thewordyhabitat.com/wp-content/uploads/2022/05/the-king-eternal-monarch-poster.jpeg" alt="Trending 4">
+              <span class="mt-2 pb-2">The King:Eternal Monarch</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://image.tmdb.org/t/p/original/eLmsw0b1EJhdVBBfwdEGvONU90U.jpg" alt="Trending 5">
+              <span class="mt-2 pb-2">The Glory</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://rukminim2.flixcart.com/image/850/1000/kri3xjk0/poster/1/n/0/large-start-up-poster-start-up-print-startup-print-startup-original-imag5a7ecghhvy2q.jpeg?q=90&crop=false" alt="Trending 6">
+              <span class="mt-2 pb-2">Doctor Slump</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABShnE9GV_eKa4L5EbAan5HPGMnHeS4KOGyiIAXZGpGi47kXh9ThwKrdvuURVUK8nvaaS0Fm14gJCuW4HPqbeI90ZNe0OdQldOGIPR-o8Hr4gjhmjcdPq-UkYGDMFAS5Ihf54Mw.jpg?r=8fe" alt="Trending 7">
+              <span class="mt-2 pb-2">Raising Voice</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://www.justwatch.com/images/poster/316814051/s718/the-8-show.jpg" alt="Trending 8">
+              <span class="mt-2 pb-2">The 8 Shows </span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://c8.alamy.com/comp/2DA5DMM/record-of-youth-aka-chungchungirok-poster-from-left-byeon-woo-seok-park-so-dam-park-bo-gum-season-1-premiered-in-the-us-sep-7-2020-photo-netflix-courtesy-everett-collection-2DA5DMM.jpg" alt="Trending 9">
+              <span class="mt-2 pb-2">Records of Youth</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BZDE0MTM5YjgtMzNhOS00NWE2LTkxN2EtMzg0NWRmODBmMDA5XkEyXkFqcGc@._V1_.jpg" alt="Trending 10">
+              <span class="mt-2 pb-2">Sweet Home</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi5">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+<!-- ----------------------------------------------watch together for older kid--------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">Watch Together For Older Kids</div>
+        <div class="swiper-container6">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BYmU1Y2U0NzEtNTllNS00YzZhLWI2YzItNWE4Y2FjOGMxN2QyXkEyXkFqcGc@._V1_.jpg" alt="Trending 1">
+              <span class="mt-2 pb-2">Unicorn Academy</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://preview.redd.it/first-poster-for-jurassic-world-chaos-theory-v0-eqfqad1ej3rc1.jpeg?width=640&crop=smart&auto=webp&s=223c68f84b65ee836c68b446f78ada416f13d905" alt="Trending 2">
+              <span class="mt-2 pb-2">Jurassic World: Chaos Thoery</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BZDU5MDNiMGItYjVmZi00NDUxLTg2OTktNGE0NzNlNzM4NzgyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 3">
+              <span class="mt-2 pb-2">Kung fu Panda</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://pics.filmaffinity.com/jurassic_world_camp_cretaceous-418739382-large.jpg" alt="Trending 4">
+              <span class="mt-2 pb-2">jurassic World camp Cretaceous</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BNGE3MGVjM2YtN2UzYy00N2NiLTljMzktMzE5ZTk4YzI2OGEwXkEyXkFqcGc@._V1_.jpg" alt="Trending 5">
+              <span class="mt-2 pb-2">spellbound</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BMTU1MzAwODM4OF5BMl5BanBnXkFtZTgwMjA4OTY5NDM@._V1_FMjpg_UX1000_.jpg" alt="Trending 6">
+              <span class="mt-2 pb-2">Lost in space</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BYThiY2JkMzMtNmFiYy00NWVhLWE3ZjUtOTE3OTRjYmMwZWViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 7">
+              <span class="mt-2 pb-2">The Worst Witch</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgj04c6UJZLuMGQOtgQMIuLVHXyKG23ViAvQqfsmG8WYTRSW4oBYUG48wHvlXZleIHoPrReCJubzUimL37PYZuykUeg3oeo-gjq-1fuGEEsS-7oIoSldbpwvHtwNT7Mu_GC02NwmiGDVSr06L8w7Wng4MXDyDgXWnKuw6FYrQTR0JVAZeFGT06kIJIPhi4/s630/Leo%20Poster.jpg" alt="Trending 8">
+              <span class="mt-2 pb-2">Leo</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://momthemagnificent.com/wp-content/uploads/2020/12/7Lw_wlgM-691x1024.jpeg" alt="Trending 9">
+              <span class="mt-2 pb-2">We can be Heroes</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://upload.wikimedia.org/wikipedia/en/8/87/Trollhunters_poster.jpg" alt="Trending 10">
+              <span class="mt-2 pb-2">Trollhunters</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi6">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+<!-- ------------------------------------romantic tv shows------------------------------------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">Romantic Tv Shows</div>
+        <div class="swiper-container7">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://images.ctfassets.net/4cd45et68cgf/5VqlXa2ugdHjhE5xTohPhP/808d9f8e79ff294fd2b270b80fc6cd5d/ENUS_Mr-Plankton_TeaserKA_Vertical_RGB_PRE.jpg?w=1200" alt="Trending 1">
+              <span class="mt-2 pb-2">Mr. Plankton</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://i0.wp.com/bgn2018media.s3.amazonaws.com/wp-content/uploads/2020/08/27110555/Screen-Shot-2020-08-12-at-11.09.17-AM.png?fit=534%2C696&ssl=1" alt="Trending 2">
+              <span class="mt-2 pb-2">Its Okey to not be okey</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BMzk4MWYxZDMtM2MzOS00ZDAzLWJhODAtZDUxZjcxZjY5YjFlXkEyXkFqcGc@._V1_.jpg" alt="Trending 3">
+              <span class="mt-2 pb-2">destined with you</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BNDFkYmM3MGMtYWIwNC00ZDkxLWFjZjItYmQ4NTdiZWNjMzczXkEyXkFqcGc@._V1_.jpg" alt="Trending 4">
+              <span class="mt-2 pb-2">Hometown cha-cha-cha</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://fr.web.img6.acsta.net/pictures/23/05/17/15/00/5722121.jpg" alt="Trending 5">
+              <span class="mt-2 pb-2">Xo , Kitty</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BZWZhMjI4MzYtYjY2Mi00ZmNkLWFkYjMtZjc3NzRiZDg2NjA0XkEyXkFqcGc@._V1_.jpg" alt="Trending 6">
+              <span class="mt-2 pb-2">Doctor Slump</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://movieassetsdigital.sgp1.cdn.digitaloceanspaces.com/original/c4cb5d8b3aeffed45611f763ae69a7cafdf5b491" alt="Trending 7">
+              <span class="mt-2 pb-2">The king: Eternal Monarch</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BM2U2NjA5NmUtNTUzYi00NDdjLWEwZjgtZGFmYjAzNzk3ZjFkXkEyXkFqcGc@._V1_.jpg" alt="Trending 8">
+              <span class="mt-2 pb-2">Ginny & georgia</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://www.justwatch.com/images/poster/202561955/s166/record-of-youth" alt="Trending 9">
+              <span class="mt-2 pb-2">Record of youth</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://upload.wikimedia.org/wikipedia/en/f/fb/Run_On_TV_series.jpg" alt="Trending 10">
+              <span class="mt-2 pb-2">Run on</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi7">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+
+
+
+
+
+     
+
+
+        
+
+      
+
+    <!-- Footer -->
+    <footer>
+        © 2024 Try Tech Clone. Built with ❤️. <a href="#">Privacy</a> | <a href="#">Terms of use </a>
+        <div class="container mt-2 d-flex">
+          
+          <select>
+            <option value="en">English</option>
+            <option value="es">Hindi</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+        </select>
+
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+      autoplay: {
+        delay: 2000,      // 2 seconds delay between slides
+        disableOnInteraction: false,
+      },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 1,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+
+    const swiperr = new Swiper('.swiper-container1', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 1,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+
+
+    const swiperr1 = new Swiper('.swiper-container2', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 1,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+
+
+ const swiperr2 = new Swiper('.swiper-container3', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 1,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+    
+    
+     
+    const swiperr3 = new Swiper('.swiper-container4', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 1,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+
+
+
+    const swiperr4 = new Swiper('.swiper-container5', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 1,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+    
+    
+    const swiperr5 = new Swiper('.swiper-container6', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 1,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+    
+    
+    const swiperr6 = new Swiper('.swiper-container7', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 1,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+    
+    
+     
+   
+    
+
+
+    </script>
+
+</body>
+</html>

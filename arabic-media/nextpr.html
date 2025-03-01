@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Example</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer {
+            background: linear-gradient(to bottom, #400000, #000000);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer .contact-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 20px;
+        }
+
+        .footer .contact-section .help {
+            font-size: 18px;
+        }
+
+        .footer .contact-section .contact-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .footer .contact-section .contact-btn:hover {
+            background: #ddd;
+        }
+
+        .footer .dropdown {
+            margin-bottom: 20px;
+        }
+
+        .footer .dropdown select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #666;
+        }
+
+        .footer .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer .links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="footer">
+        <div class="contact-section">
+            <span class="help">Need more help?</span>
+            <button class="contact-btn">Contact Us</button>
+        </div>
+
+        <div class="dropdown">
+            <select>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </div>
+
+        <div class="links">
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookie Preferences</a>
+            <a href="#">Corporate Information</a>
+        </div>
+    </div>
+</body>
+</html>

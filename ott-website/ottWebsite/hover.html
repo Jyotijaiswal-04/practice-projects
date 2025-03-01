@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Login/Signup Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            position: relative;
+            width: 800px;
+            max-width: 100%;
+            height: 500px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: all 0.6s ease-in-out;
+        }
+
+        .login-container {
+            z-index: 2;
+        }
+
+        .signup-container {
+            top: 100%;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .container.active .login-container {
+            top: -100%;
+            opacity: 0;
+        }
+
+        .container.active .signup-container {
+            top: 0;
+            opacity: 1;
+            z-index: 2;
+        }
+
+        form {
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 50px;
+            height: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        input {
+            background: #f2f2f2;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+        }
+
+        button {
+            border-radius: 20px;
+            border: 1px solid #ff4b2b;
+            background-color: #ff4b2b;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff416c;
+        }
+
+        .overlay-container {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                height: 100vh;
+            }
+
+            .form-container {
+                position: relative;
+                top: 0;
+                height: 50%;
+                width: 100%;
+            }
+
+            .login-container {
+                z-index: 2;
+            }
+
+            .signup-container {
+                top: 50%;
+                z-index: 1;
+            }
+
+            .container.active .login-container {
+                top: -50%;
+            }
+
+            .container.active .signup-container {
+                top: 0;
+                opacity: 1;
+                z-index: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container login-container">
+            <form>
+                <h1>Login</h1>
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <button>Log In</button>
+            </form>
+        </div>
+        <div class="form-container signup-container">
+            <form>
+                <h1>Sign Up</h1>
+                <input type="text" placeholder="Name" required />
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Password" required />
+                <button>Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const signUpButton = document.createElement('button');
+        const signInButton = document.createElement('button');
+
+        signUpButton.innerHTML = 'Sign Up';
+        signUpButton.classList.add('toggle-btn');
+        signUpButton.addEventListener('click', () => {
+            container.classList.add('active');
+        });
+
+        signInButton.innerHTML = 'Log In';
+        signInButton.classList.add('toggle-btn');
+        signInButton.addEventListener('click', () => {
+            container.classList.remove('active');
+        });
+
+        document.body.appendChild(signUpButton);
+        document.body.appendChild(signInButton);
+    </script>
+</body>
+</html>

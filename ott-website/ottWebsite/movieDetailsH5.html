@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix UI Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #141414;
+            color: #fff;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 30px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        header button {
+            background: #e50914;
+            border: none;
+            padding: 10px 10px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        .hero-section {
+            position: relative;
+            padding: 50px;
+            background: url('https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQX95V0-PMy_X-zCp2d8GJmwAlIDSyD9sgIhzId1OyGcyxFMsw-UMyS1MN7fqEsx0cry0sPUinyACWlPWaq8ZJdoj6Xjj7rr3CzOFbmlMp-iby0uvThHtKnjJL1Xe8nhSzJR5rS8i721MoznwLwVm-3h2aO8.jpg?r=965') no-repeat center center/cover;
+            height: 500px;
+            border: 1px solis white;
+           border-radius: 20px;
+            margin: 25px;
+            margin-top: 50px;
+        }
+
+        .hero-section .content {
+            position: absolute;
+            /* height: 200px; */
+            bottom: 30px;
+            left: 50px;
+            /* background-color: rgba(0, 0, 0, 0.4); */
+        }
+        .ss{
+            position:absolute ;
+            left: 0px;
+            top:0px;
+            width: 100%;
+            height: 500px;
+            /* background-color: rgba(0, 0, 0, 0.4); */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0.30),rgba(0, 0, 0, 0));
+
+            /* border: 1px solid red; */
+            border-top-left-radius:20px ;
+            border-bottom-left-radius: 20px;
+           
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-section button {
+            background: #e50914;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 45px;
+        }
+
+        section {
+            padding: 20px 50px;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+            /* overflow-x: auto; */
+            scroll-behavior: smooth;
+        }
+        /* .row1 {
+            
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        } */
+
+
+        /* .row::-webkit-scrollbar {
+            display: none;
+        } */
+
+        .card {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 300px;
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .card1 {
+            flex: 0 0 auto;
+            width: 320px;
+            /* height: 300px; */
+            background: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0;
+           padding: 0;
+           object-fit: cover;
+        }
+        
+
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .price-card1 {
+            /* background: #222; */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            background: linear-gradient(120deg, #7a6bc4, #150281);
+        }
+        .price-card2 {
+            /* background: #222; */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            background: linear-gradient(100deg, #3e20d6, #0e023b);
+        }
+        .price-card3 {
+            /* background: #222; */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            background: linear-gradient(40deg, #d33db2, #4026d4);
+        }
+        .price-card4 {
+            /* background: #222; */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            background: linear-gradient(120deg, #3418c2, #d83636);
+        }
+
+        .price-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .price-card button {
+            background: #e50914;
+            border: none;
+            padding: 10px;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .card img{
+            width: 200px;
+            height: 300px;
+        }
+         video{
+            
+        width: 100%;
+       height: 100%;
+        object-fit: cover; /* Ensures the video covers its container */
+        margin: 0; /* Removes any default margins */
+         border: none; /* Removes any borders if present */ 
+        }
+        .t1{
+            display: flex;
+            justify-content: center;
+            margin: 5px;
+            
+        }
+        .t1 a{
+            font-size: 12px;
+        }
+        .custom-btn-group {
+  border-radius: 50px; /* Outer pill shape */
+  display: flex; /* Aligns buttons in a row */
+  overflow: hidden; /* Ensures no overflow outside rounded corners */
+  position: fixed;
+  z-index: 10;
+  
+
+}
+
+.custom-btn-group .btn {
+  border-radius: 0; /* Individual buttons should not have rounded corners */
+}
+.logo {
+    color: #E50914;
+    font-size: 2rem;
+    font-weight: bold;
+}
+/* ---------------------------------------------------------footer------------------------------------------------- */
+.footer {
+        
+        /* background-image: url("https://img.freepik.com/free-photo/abstract-gradient-neon-lights_23-2149279115.jpg");
+        background-repeat: no-repeat;
+         background-size: cover; */
+         /* background: #111;
+         color: rgba(255, 255, 255, 0.7); */
+         background-color:rgba(0, 0, 0, 0.4);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+           
+        }
+
+        .footer .contact-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 20px;
+        }
+
+        .footer .contact-section .help {
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer .contact-section .contact-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .footer .contact-section .contact-btn:hover {
+            background: #ddd;
+        }
+
+        .footer .dropdown1 {
+            margin-bottom: 20px;
+        }
+
+        .footer .dropdown1 select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #666;
+        }
+
+        .footer .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer .links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer .links a:hover {
+            text-decoration: underline;
+        }
+        #sec1v .card{
+            width: 200px;
+            height: 200px;
+
+        }
+
+     @media screen and (max-width: 768px) {
+       
+        .t1 a{
+            font-size: 10px;
+        }
+       
+.btn-group{
+    width: 200px;
+}
+.logo img{
+        height: 30px;
+        width: 120px;
+    }
+
+    }
+                    
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="New.png" height="30px" width="180px"></div>
+        <button>Sign In</button>
+
+    </header>
+    <div class="t1 mt-2">
+        <div class="btn-group w-25-lg  rounded-pill custom-btn-group ">
+            <a href="#sec1" class="btn btn-dark " aria-current="page" >Trailer</a>
+            <a href="#sec2" class="btn btn-dark ">More To Watch</a>
+            <a href="#sec3" class="btn btn-dark ">Plan</a>
+          </div>
+    </div>
+
+    <div class="hero-section">
+        <div class="ss">
+        <div class="content">
+            <h1>Xo,Kitty</h1>
+            <p>Action | Drama</p>
+            <button>Watch Now</button>
+        </div>
+        </div>
+    </div>
+
+    <section id="sec1">
+        <h2>Trailers</h2>
+        <div class="row">
+            <div class="card1"><video controls autoplay muted loop>
+                <source src="t1.mp4" type="video/mp4">
+         </video></div>
+         <div class="card1"><video controls autoplay muted loop>
+            <source src="https://media.istockphoto.com/id/1448566365/video/aerial-view-of-clear-turquoise-sea-and-sound-of-waves.mp4?s=mp4-480x480-is&k=20&c=1lezElFW8wdM-yzTxaHI4WQg9q-7_-bqoW2IMt-YTzo=" type="video/mp4">
+     </video></div>
+     <div class="card1"><video controls autoplay muted loop>
+        <source src="t2.mp4" type="video/mp4">
+ </video></div>
+            
+        </div>
+    </section>
+
+    <section id="sec2">
+        <h2>You Might Also Like</h2>
+        <div class="row">
+            <div class="card">
+                <a href="movieDetailsH1.html"><img src="https://images.ctfassets.net/4cd45et68cgf/5VqlXa2ugdHjhE5xTohPhP/808d9f8e79ff294fd2b270b80fc6cd5d/ENUS_Mr-Plankton_TeaserKA_Vertical_RGB_PRE.jpg?w=1200"></a>
+            </div>
+            <div class="card">
+              <a href="movieDetailsH2.html">  <img src="https://i0.wp.com/bgn2018media.s3.amazonaws.com/wp-content/uploads/2020/08/27110555/Screen-Shot-2020-08-12-at-11.09.17-AM.png?fit=534%2C696&ssl=1"></a>
+            </div>
+            <div class="card">
+              <a href="movieDetailsH3.html">  <img src="https://m.media-amazon.com/images/M/MV5BMzk4MWYxZDMtM2MzOS00ZDAzLWJhODAtZDUxZjcxZjY5YjFlXkEyXkFqcGc@._V1_.jpg"></a>
+            </div>
+            <div class="card">
+               <a href="movieDetailsH4.html"> <img src="https://m.media-amazon.com/images/M/MV5BNDFkYmM3MGMtYWIwNC00ZDkxLWFjZjItYmQ4NTdiZWNjMzczXkEyXkFqcGc@._V1_.jpg"></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sec2">
+        <h2>Trending Now</h2>
+        <div class="row">
+            <div class="card">
+            <a href="movieDetailsH6.html">    <img src="https://m.media-amazon.com/images/M/MV5BZWZhMjI4MzYtYjY2Mi00ZmNkLWFkYjMtZjc3NzRiZDg2NjA0XkEyXkFqcGc@._V1_.jpg"></a>
+            </div>
+            <div class="card">
+               <a href="movieDetailsH7.html"> <img src="https://movieassetsdigital.sgp1.cdn.digitaloceanspaces.com/original/c4cb5d8b3aeffed45611f763ae69a7cafdf5b491"></a>
+            </div>
+            <div class="card">
+               <a href="movieDetailsH8.html"> <img src="https://m.media-amazon.com/images/M/MV5BM2U2NjA5NmUtNTUzYi00NDdjLWEwZjgtZGFmYjAzNzk3ZjFkXkEyXkFqcGc@._V1_.jpg"></a>
+            </div>
+            <div class="card">
+               <a href="movieDetailsH9.html"> <img src="https://www.justwatch.com/images/poster/202561955/s166/record-of-youth" alt="Trending 8"></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sec3">
+        <h2>A Plan to Suit Your Needs</h2>
+        <div class="pricing" id="mydiv">
+            <div class="price-card1">
+                <h3>Mobile</h3>
+                <p>720p Streaming</p>
+               <p>&#8377;149/month</p>
+            </div>
+            <div class="price-card2">
+                <h3>Basic</h3>
+                <p>1080p Streaming</p>
+                <p>&#8377;199/month</p>
+            </div>
+            <div class="price-card3">
+                <h3>Standard</h3>
+                <p>4K Streaming</p>
+                <p>&#8377;499/month</p>
+            </div>
+            <div class="price-card4">
+                <h3>Premium</h3>
+                <p>4K+HDR Streaming</p>
+                <p>&#8377;649/month</p>
+            </div>
+        </div>
+    </section>
+    <div class="footer mt-5">
+        <div class="contact-section">
+           <a href="HelpCenter.html" class="help" > <span class="help">Need more help?</span></a>
+           <a href="contact.html"> <button class="contact-btn">Contact Us</button></a>
+        </div>
+    
+        <div class="dropdown1">
+            <!-- <select>
+                <option value="en">English</option>
+                <option value="es">Hindi</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+            </select> -->
+            <a href="ott.html"><button class="btn btn-danger w-25 mt-3">Join now</button></a>
+        </div>
+    
+        <div class="links">
+            <a href="TermOfUse.html">Terms of Use</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="cookiePreferances.html">Cookie Preferences</a>
+            <a href="CorporateInformation.html">Corporate Information</a>
+        </div>
+        
+    </div>
+
+    <!-- <script>
+        // Add basic scrolling functionality for rows
+        document.querySelectorAll('.row').forEach(row => {
+            row.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                row.scrollBy({ left: e.deltaY < 0 ? -300 : 300 });
+            });
+        });
+    </script> -->
+    <script>
+        // JavaScript to make the div clickable
+        document.getElementById('mydiv').addEventListener('click', function () {
+            // Redirect to a URL
+            window.location.href = 'get4.html';
+            
+        });
+    </script>
+</body>
+</html>

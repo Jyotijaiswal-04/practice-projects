@@ -1,0 +1,366 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+body{
+    background-color: black;
+}
+body::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* background-image: url(https://i.ytimg.com/vi/acSQHN3cNKE/maxresdefault.jpg); */
+    background-image: url(https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/netflixteaser.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px); /* Apply blur to the background */
+    z-index: -1; /* Ensure background is behind the content */
+   
+    
+    
+
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: lightgrey; */
+    padding: 5px 5px;
+    color: black;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color:rgb(142, 146, 184,0.5);
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.navbar-search input {
+    padding: 5px 10px;
+    border: 2px solid lightgrey;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    outline: none;
+    font-size: 1em;
+}
+
+.navbar-search input::placeholder {
+    color:darkgray;
+    opacity: 0.7;
+}
+
+.navbar-search input:focus {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.navbar-links{
+    display: flex;
+}
+
+.navbar-links a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1em;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+.sidediv{
+    display: flex;
+}
+.sidebar {
+    width: 80px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);/* Semi-transparent black */
+    color: white;
+    padding-left: 10px;
+    box-sizing: border-box;
+    position: fixed; 
+    top: 80px; 
+    left: 0;
+    display: flex;
+    
+}
+.child{
+    display: none;
+    width: 150px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);/* Semi-transparent black */
+    color: white;
+    padding-top: 10px;
+    /* box-sizing: border-box; */
+    position: absolute; /* Keeps it fixed on the left */
+    top:0px;
+    left: 100%;
+   
+    
+  
+   
+}
+.sidebar:hover .child{
+    display:block;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3em;
+    transition: color 0.3s;
+}
+.child  li a {
+    font-size: 16px;
+}
+.sidebar ul li a:hover {
+    color: #f10f0f; /* Highlight color */
+}
+
+.content {
+    margin-left: 270px; /* Offset for the sidebar */
+    padding: 20px;
+    background-color: #f4f4f4;
+    width: calc(100% - 270px);
+    box-sizing: border-box;
+}
+
+.content h1 {
+    margin-top: 0;
+}
+.sec1div{
+    margin-left: 130px;
+    margin-top: 20px;
+    color: #333;
+
+}
+.sec1div2{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    color: white;
+    
+    font-size: 20px;
+    font-weight: bold;
+    gap: 300px;
+    /* text-decoration: underline; */
+}
+.sec1div2:hover{
+    color: red;
+}
+.parent1{
+    height: 200px;
+    width: 220px;
+    border: 2px solid whitesmoke;
+    margin-left: 170px;
+    background-image: url(https://upload.wikimedia.org/wikipedia/en/c/cb/Auron_Mein_Kahan_Dum_Tha_poster.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* margin-bottom: 120px; */
+}
+.child1{
+    display: none;
+    
+    
+    
+}
+.card {
+    width: 320px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+  }
+  .card-image {
+    position: relative;
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100px;
+  }
+  
+  .trailer-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  .card-content {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .card-content h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .card-content p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 15px;
+  }
+  
+  .rating {
+    color: #ff4500;
+    font-weight: bold;
+  }
+  .card-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .watch-now {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-icon {
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .add-icon:hover,
+.watch-now:hover {
+  opacity: 0.9;
+}
+.parent1:hover .child1{
+    display:block;
+}
+
+.scroll{
+    width: 100%;
+    height: 80vh;
+    overflow: hidden; /* Hides content that scrolls outside the container */
+    display: flex;
+    align-items: center;
+    /* background-color:darkgrey; */
+    position: relative;
+    /* margin-top: 100px; */
+    gap: 3px;
+    z-index: -1;
+  }
+.parentA{
+    height: 300px;
+    width: 300px;
+    background-image: url(https://img.freepik.com/free-vector/movie-film-strip-blue-background_1017-33458.jpg);
+    animation: move 10s linear infinite;
+}
+.parentB{
+    height: 300px;
+    width: 300px;
+    background-image: url(https://img.freepik.com/free-vector/movie-film-strip-blue-background_1017-33458.jpg);
+    animation: move 10s linear infinite;
+}
+.parentC{
+    height: 300px;
+    width: 300px;
+    background-image: url(https://img.freepik.com/free-vector/movie-film-strip-blue-background_1017-33458.jpg);
+    animation: move 10s linear infinite;
+}
+.parentD{
+    height: 300px;
+    width: 300px;
+    background-image: url(https://img.freepik.com/free-vector/movie-film-strip-blue-background_1017-33458.jpg);
+    animation: move 10s linear infinite;
+}
+.parentE{
+    height: 300px;
+    width: 300px;
+    background-image: url(https://img.freepik.com/free-vector/movie-film-strip-blue-background_1017-33458.jpg);
+    animation: move 10s linear infinite;
+}
+
+  @keyframes move {
+    0% {
+      transform: translateX(100%); /* Start off-screen to the right */
+      /* margin-left: 150px; */
+    }
+    70% {
+      transform: translateX(20%);
+      /* margin-left: 150px; Move off-screen to the left */
+    }
+  }
+
+  
+  
+
+
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .navbar-left {
+        flex: 1 0 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .navbar-links {
+        margin: 10px 0;
+    }
+    .sidebar {
+        width: 200px;
+    }
+
+    .content {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Payment Setup</title>
+    <!-- Font Awesome CDN -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #cad1d1;
+            color: #333;
+        }
+        /* Header Section */
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: black;
+            border-bottom: 1px solid #e6e6e6;
+        }
+        .header .logo {
+            font-size: 28px;
+            color: #E50914;
+            font-weight: bold;
+        }
+        .header .sign-out {
+            font-size: 14px;
+            color: red;
+            text-decoration: none;
+        }
+        .header .sign-out:hover {
+            text-decoration: underline;
+        }
+        /* Main Container */
+        .container {
+            max-width: 450px;
+            margin: 30px auto;
+            padding: 20px;
+            text-align: left;
+        }
+        .container img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+        }
+        /* Step and Heading */
+        .step {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .heading {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        /* Input Fields with Icons */
+        .input-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .input-container input {
+            width: 100%;
+            height: 45px;
+            padding: 10px 40px 10px 10px; /* Space for the icon */
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-container i {
+            position: absolute;
+            top: 50%;
+            right: 10px; /* Align icon to the right */
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 18px;
+        }
+        .input-container input:focus {
+            border-color: #0071eb;
+            outline: none;
+        }
+        /* Price Section */
+        .price-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            padding: 7px;
+            background-color: rgb(240, 231, 231);
+        }
+        .change-link {
+            color: #0071eb;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .change-link:hover {
+            text-decoration: underline;
+        }
+        /* Terms */
+        .terms {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        /* Checkbox Section */
+        .checkbox-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .checkbox-section input {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+        }
+        /* Button */
+        .button {
+            width: 100%;
+            height: 50px;
+            background-color: #360608;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #bf0811;
+        }
+        /* Captcha Note */
+        .captcha {
+            font-size: 12px;
+            color: #555;
+            margin-top: 15px;
+        }
+        .captcha a {
+            color: #0071eb;
+            text-decoration: none;
+        }
+        .captcha a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+      background-color: #7c7979c9;
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+    }
+
+    .footer a {
+      color: wheat;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .language-selector {
+      margin-top: 15px;
+    }
+
+    select {
+      border: 1px solid #ddd;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    @media screen and (max-width: 768px) {
+      .header img{
+        height: 30px;
+        width: 90px;
+    }
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <img src="New.png" height="30px" width="180px">
+        <a href="signout.html" class="sign-out">Sign Out</a>
+    </div>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Step Indicator -->
+        <!-- <div class="step">STEP 2 OF 4</div> -->
+        <!-- Heading -->
+        <div class="heading">Set up your credit or debit card</div>
+        <img src="https://www.svgrepo.com/show/328112/visa.svg" alt="Visa">
+      <img src="https://banner2.cleanpng.com/20180821/jpy/69278df51f257f741f3bc6eca1c8b19a.webp" alt="MasterCard">
+      <img src="https://www.citypng.com/public/uploads/preview/cirrus-debit-card-logo-hd-png-7017516947777139nqyxlvu6z.png?=2024121123" alt="cirrus">
+        <!-- Card Form -->
+        <form>
+            <!-- Card Number -->
+            <div class="input-container">
+                <input type="text" placeholder="Card number" required>
+                <i class="fa-solid fa-credit-card"></i>
+            </div>
+            <!-- Expiration Date -->
+            <div class="input-container">
+                <input type="text" placeholder="Expiration date" required>
+                <i class="fa-regular fa-calendar"></i>
+            </div>
+            <!-- CVV -->
+            <div class="input-container">
+                <input type="text" placeholder="CVV" required>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <!-- Name on Card -->
+            <div class="input-container">
+                <input type="text" placeholder="Name on card" required>
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <!-- Price Section -->
+            <div class="price-section">
+                ₹149/month Mobile
+                <a href="#" class="change-link">Change</a>
+            </div>
+            <!-- Terms and Conditions -->
+            <div class="terms">
+                Any payment above ₹2000 shall need additional authentication.<br>
+                By checking the checkbox below, you agree to our 
+                <a href="TermOfUse.html" class="change-link">Terms of Use</a>, 
+                <a href="privacy.html" class="change-link">Privacy Statement</a>, and that you are over 18. Netflix will automatically continue your membership and charge the membership fee (currently ₹149/month) to your payment method until you cancel. You may cancel at any time to avoid future charges.
+            </div>
+            <!-- Checkbox -->
+            <div class="checkbox-section">
+                <input type="checkbox" required>
+                <label>I agree.</label>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="button">Start Membership</button>
+            <!-- Captcha Note -->
+            <div class="captcha">
+                This page is protected by Google reCAPTCHA to ensure you're not a bot. 
+                <a href="#">Learn more.</a>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+    
+        <a href="HelpCenter.html">Help Centre</a>
+        <a href="TermOfUse.html">Terms of Use</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="cookiePreferances.html">Cookie Preferences</a>
+        <div class="language-selector">
+          <select>
+            <option>English</option>
+            <option>हिन्दी</option>
+          </select>
+        </div>
+      </div>
+</body>
+</html>

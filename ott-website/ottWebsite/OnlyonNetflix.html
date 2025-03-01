@@ -1,0 +1,3698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix-Style Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e50914;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #e50914;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://img.freepik.com/premium-photo/part-black-clapper-board-movie-slate-popcorn-black-background_335640-3934.jpg?semt=ais_hybrid') no-repeat center center/cover;
+            display: flex;
+            /* justify-content: center; */
+             align-items: center; 
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), #000);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-content .btn {
+            padding: 15px 30px;
+            background: #e50914;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .hero-content .btn:hover {
+            background: #b00710;
+        }
+
+        /* Trending Section */
+        .trending {
+            padding: 40px;
+        }
+
+        .trending h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .trending .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        /* footer {
+            padding: 20px;
+            text-align: center;
+            background: #111;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+        .link{
+            
+            border-radius: 20px;
+            padding: 5px;
+        } */
+        .footer {
+        
+        /* background-image: url("https://img.freepik.com/free-photo/abstract-gradient-neon-lights_23-2149279115.jpg");
+        background-repeat: no-repeat;
+         background-size: cover; */
+         /* background: #111;
+         color: rgba(255, 255, 255, 0.7); */
+         background-color:rgba(0, 0, 0, 0.4);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+           
+        }
+
+        .footer .contact-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 20px;
+        }
+
+        .footer .contact-section .help {
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer .contact-section .contact-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .footer .contact-section .contact-btn:hover {
+            background: #ddd;
+        }
+
+        .footer .dropdown1 {
+            margin-bottom: 20px;
+        }
+
+        .footer .dropdown1 select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #666;
+        }
+
+        .footer .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer .links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* -------------------------------------------------tranding------------------------------------------------ */
+        .trending-section {
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    
+
+  }
+  .trending-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* text-align: center; */
+  }
+  .swiper-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container1 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container2 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container3 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container4 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container5 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container6 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+  } 
+
+  .swiper-container7 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+  } 
+  
+   .nevi{
+    position: reletive;
+   }
+  .swiper-button-next{
+    position: absolute;
+    top: 125px;
+    font-size: 5px;
+    font-weight: bold;
+    color: white;
+    right: 25px;
+}
+.swiper-button-prev {
+  position: absolute;
+  left: 10px; /* Left me dikhane ke liye */
+  top: 50%; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nevi1{
+    position: reletive;
+   }
+   .nevi1 .swiper-button-next{
+    position: absolute;
+    top: 1230px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi1 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 1250px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 8px;
+  font-weight: bold;
+    color: white;
+}
+.nevi2{
+    position: reletive;
+   }
+   .nevi2 .swiper-button-next{
+    position: absolute;
+    top: 1631px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi2 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 1650px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 8px;
+    font-weight: bold;
+    color: white;
+}
+
+.nevi3{
+    position: reletive;
+   }
+   .nevi3 .swiper-button-next{
+    position: absolute;
+    top: 2031px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi3 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 2046px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 8px;
+  font-weight: bold;
+    color: white;
+}
+
+.nevi4{
+    position: reletive;
+   }
+   .nevi4 .swiper-button-next{
+    position: absolute;
+    top: 2427px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi4 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 2444px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 8px;
+  font-weight: bold;
+    color: white;
+}
+
+.nevi5{
+    position: reletive;
+   }
+   .nevi5 .swiper-button-next{
+    position: absolute;
+    top: 2822px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi5 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 2840px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 8px;
+  font-weight: bold;
+    color: white;
+}
+
+.nevi6{
+    position: reletive;
+   }
+   .nevi6 .swiper-button-next{
+    position: absolute;
+    top: 3237px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi6 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 3240px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 8px;
+  font-weight: bold;
+    color: white;
+}
+
+.nevi7{
+    position: reletive;
+   }
+   .nevi7 .swiper-button-next{
+    position: absolute;
+    top: 3620px;
+    font-size: 8px;
+    font-weight: bold;
+    color: white;
+    right: 45px;
+}
+.nevi7 .swiper-button-prev {
+  position: absolute;
+  left: 35px; /* Left me dikhane ke liye */
+  top: 3638px; /* Vertically center */
+  transform: translateY(-50%); /* Center alignment vertically */
+  z-index: 10; /* Button ko slider ke upar dikhane ke liye */
+  font-size: 8px;
+  font-weight: bold;
+    color: white;
+}
+
+
+
+
+
+    .swiper-wrapper {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12.5%; /* This ensures 8 slides fit in one row (100% / 8 = 12.5%) */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+  .swiper-slide:hover{
+    
+    transform: scale(1.05);
+    }
+  .swiper-slide img {
+    width: 95%;
+    height: 90%;
+    object-fit: cover;
+  }
+  .swiper-slide h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+  }
+  .swiper-slide a {
+    width: 95%;
+    height: 90%;
+    object-fit: cover;
+  }
+  span{
+    font-size: 13px;
+  }
+  /* .swiper-container1 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    
+  }
+  .swiper-container1 .swiper-slide img {
+    width: 95%;
+    height: 90%;
+    object-fit: cover;
+  }
+  .swiper-container2 {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    
+  } */
+  .swiper-pagination {
+  visibility: hidden; /* Dots are hidden, but space is still reserved */
+}
+ 
+  span{
+    font-size: 13px;
+  }
+  select{
+    padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #666;
+  }
+
+/* -------------------------------------modal--------------------------------------- */
+.mod {
+      background-color: #141414;
+      color: #fff;
+    }
+
+   .mod .modal-content {
+      background-color: rgba(0,0,0,0.8);
+      border: none;
+      border-radius: 10px;
+    }
+
+    .mod .modal-body img {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .mod .modal-footer-content {
+      padding: 5px;
+      color: white;
+    }
+
+    .mod .modal-footer-content h5 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .mod .modal-footer-content p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+   .mod .get-started-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+     .mod .get-started-btn:hover {
+      background-color: darkred;
+    }
+
+    .mod .close-btn {
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .link .btn{
+      /* padding: 2px; */
+      padding-top: 1px;
+      padding-bottom: 1px;
+      font-size: 5px;
+    }
+
+  
+  @media screen and (max-width: 768px){
+    header{
+        flex-direction: column;
+        /* justify-content: center; */
+        gap: 15px;
+        .link .btn{
+          background-color: #fff;
+      /* padding: 2px; */
+      padding-top: 1px;
+      padding-bottom: 1px;
+      font-size: 4px;
+      margin: 0;
+    }
+        #ab{
+          /* margin-left: 50px; */
+        }
+    }
+    .navbar-logo img{
+        height: 30px;
+        width: 90px;
+    }
+    .hero{
+      margin: 5px;
+    }
+    
+
+    .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33.3%; /* This ensures 8 slides fit in one row (100% / 8 = 12.5%) */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .swiper-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container1 {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container2 {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container3 {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container4 {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container5 {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .swiper-container6 {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+  } 
+
+  .swiper-container7 {
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+  } 
+  
+
+    .nevi .swiper-button-next{
+    /* position: absolute; */
+    top: 96px;
+    /* font-size: 2px; */
+}
+.nevi .swiper-button-prev {
+  /* position: absolute; */
+  top: 117px;
+  /* font-size: 2px; */
+}
+.nevi1 .swiper-button-next{
+    /* position: absolute; */
+    top: 1190px;
+    
+}
+.nevi1 .swiper-button-prev {
+  /* position: absolute; */
+  top: 1212px;
+}
+.nevi2 .swiper-button-next{
+    /* position: absolute; */
+    top: 1490px;
+    
+}
+.nevi2 .swiper-button-prev {
+  /* position: absolute; */
+  top: 1510px;
+}
+    .nevi3 .swiper-button-next{
+    /* position: absolute; */
+    top: 1825px;
+    
+}
+.nevi3 .swiper-button-prev {
+  /* position: absolute; */
+  top: 1847px;
+}
+.nevi4 .swiper-button-next{
+    /* position: absolute; */
+    top: 2122px;
+    
+}
+.nevi4 .swiper-button-prev {
+  /* position: absolute; */
+  top: 2142px;
+}
+.nevi5 .swiper-button-next{
+    /* position: absolute; */
+    top: 2460px;
+    
+}
+.nevi5 .swiper-button-prev {
+  /* position: absolute; */
+  top: 2478px;
+}
+
+.nevi6 .swiper-button-next{
+    /* position: absolute; */
+    top: 2790px;
+    
+}
+.nevi6 .swiper-button-prev {
+  /* position: absolute; */
+  top: 2808px;
+}
+.nevi7 .swiper-button-next{
+    /* position: absolute; */
+    top: 3135px;
+    
+}
+.nevi7 .swiper-button-prev {
+  /* position: absolute; */
+  top: 3160px;
+}
+
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+          <img src="New.png" height="30px" width="180px">
+        </div>
+        <div class="link">
+            <a href="ott.html" ><button class="btn mt-0 btn-outline-danger fs-6 rounded-pill">Home</button></a>
+            <a href="get4.html"><button class="btn mt-0 btn-outline-danger fs-6 rounded-pill">join now</button></a>
+            <a href="signInPage.html"><button  class="btn btn-light fs-6 mt-0 rounded-pill" id="ab">Sign In</button> </a>
+
+        </div>
+        
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Only on netflix</h1>
+            <p>Netflix is the home of amazing original programming that you can’t find anywhere else. Movies, TV shows, specials and more, all tailored specifically to you.</p>
+            <p>Watch anywhere. Cancel anytime.</p>
+            <a href="get4.html"><button class="btn fs-6">Get Started</button></a>
+        </div>
+    </div>
+
+    <!-- Trending Section -->
+    <div class="trending-section">
+        <div class="trending-title">TV Comedies</div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide  ">
+            <img src="https://artworks.thetvdb.com/banners/series/310679/posters/60212baf6e756.jpg" alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal1">
+            </div>
+            
+            <div class="swiper-slide">
+            <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRY5M-yIaWksJHYBSbbGFAVgFZV2YmENbsqR6VoujcD11Y_2qyR5ARNpT1th_C6EIFCRF26" alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal2">
+            </div>
+            <div class="swiper-slide">
+              <img src="https://m.media-amazon.com/images/M/MV5BNWNmYmQ2NzctNTA1NS00NGU2LThjOTQtYTgxNmUyYmNjODYyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 3" data-bs-toggle="modal" data-bs-target="#netflixModal3">
+            </div>
+
+            <div class="swiper-slide">
+            <img src="https://www.justwatch.com/images/poster/309462804/s718/my-demon.jpg" alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal4">
+            </div>
+
+            <div class="swiper-slide">
+            <img src="https://www.justwatch.com/images/poster/320425339/s718/moms-friends-son.jpg" alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal5">
+          </div>
+            <div class="swiper-slide">
+            <img src="https://m.media-amazon.com/images/M/MV5BZmYyYTczZGYtMmM4MC00OWRiLWFlN2ItZTA4ODVlZjljOWNjXkEyXkFqcGc@._V1_.jpg" alt="Trending 6" data-bs-toggle="modal" data-bs-target="#netflixModal6">
+            </div>
+
+            <div class="swiper-slide">
+              <img src="https://m.media-amazon.com/images/M/MV5BMDdhOTRhNjEtMGJkNi00ZDczLTliMDktNzFjMWIzYThhMDIxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 7" data-bs-toggle="modal" data-bs-target="#netflixModal7">
+             </div>
+
+            <div class="swiper-slide">
+            <img src="https://i.ebayimg.com/images/g/ANYAAOSwTOZfUKvd/s-l1200.jpg" alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal8">
+            </div>
+
+            <div class="swiper-slide">
+            <img src="https://i.ebayimg.com/images/g/FxEAAOSw8vxjvlMM/s-l1200.jpg" alt="Trending 9" data-bs-toggle="modal" data-bs-target="#netflixModal9">
+            </div>
+
+            <div class="swiper-slide">
+            <img src="https://m.media-amazon.com/images/M/MV5BYjExMzg4MTAtZGM5OC00Njc3LWExYjctYjQ4YWJjZWYwYjViXkEyXkFqcGc@._V1_.jpg" alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal10">
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+<!-- --------------------------------------------------Hindi-language  Movies------------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">Hindi-Language Movies</div>
+        <div class="swiper-container1">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column ">
+            <img src="https://stat4.bollywoodhungama.in/wp-content/uploads/2024/10/Do-Patti-12-322x402.jpg" alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal11">
+            <span class="mt-2 pb-2">Do patti</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column ">
+             <img src="https://m.media-amazon.com/images/M/MV5BYzZhNWEzNTktMDA1YS00ZmYyLTkwNjgtYTJiMmU2YjZiYjBhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal12">
+              <span class="mt-2 pb-2">Sikandar ka Muqaddar</span>
+              </div>
+
+              <div class="swiper-slide d-flex flex-column ">
+              <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSEFAoyf_gbsZA5geXj4GFyMgRT_8c-FifugilumIK-49tDkYlSxLg3Y97uY6qFcJbiQ0o" alt="Trending 3" data-bs-toggle="modal" data-bs-target="#netflixModal13">
+              <span class="mt-2 pb-2">Sector 36</span>
+              </div>
+
+              <div class="swiper-slide d-flex flex-column ">
+              <img src="https://upload.wikimedia.org/wikipedia/en/e/e7/Wild_Wild_Punjab.jpg" alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal14">
+                <span class="mt-2 pb-2">Wild Wild Punjab</span>
+              </div>
+
+              <div class="swiper-slide d-flex flex-column ">
+              <img src="https://m.media-amazon.com/images/M/MV5BM2ZjMmVlMzEtNDYxNC00NTI2LTkzZmEtZTJjOGQ4MjMyNjgyXkEyXkFqcGc@._V1_.jpg" alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal15">
+              <span class="mt-2 pb-2">Maharaj</span>
+              </div>
+
+              <div class="swiper-slide d-flex flex-column ">
+            <img src="https://artworks.thetvdb.com/banners/series/310679/posters/60212baf6e756.jpg" alt="Trending 6" data-bs-toggle="modal" data-bs-target="#netflixModal16">
+              <span class="mt-2 pb-2">Kapil Sharma</span>
+              </div>
+
+              <div class="swiper-slide d-flex flex-column ">
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/be/Phir_Aayi_Hasseen_Dillruba.jpg" alt="Trending 7" data-bs-toggle="modal" data-bs-target="#netflixModal17">
+             <span class="mt-2 pb-2">Phir Aayi Hasseen dilruba</span>
+              </div>
+
+              <div class="swiper-slide d-flex flex-column ">
+              <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Murder_Mubarak_poster.jpg" alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal18">
+              <span class="mt-2 pb-2">Murder Mubarak</span>
+              </div>
+
+              <div class="swiper-slide d-flex flex-column ">
+              <img src="https://anandkumarrsonfilms.com/wp-content/uploads/2022/08/darlings-poster.jpg" alt="Trending 9" data-bs-toggle="modal" data-bs-target="#netflixModal19">
+             <span class="mt-2 pb-2">Darlings</span>
+              </div>
+
+              <div class="swiper-slide d-flex flex-column ">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3uGw5MEpVZtdMgJFUlyOD6s4szcRdsnonv1yvzHXhHweUR__wjMbrUXvmPfqi9Z0suXBa" alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal20">
+           <span class="mt-2 pb-2">Gunjan Saxena</span>
+              </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi1">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+<!-- ------------------------------------------------us tv shows---------------------------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">US TV Shows</div>
+        <div class="swiper-container2">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQnoyELeXJFybyGI6hyetkMQvR-5fSPO-DyA&s" alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal21">
+          <span class="mt-2 pb-2">Manifest</span>
+          </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+          <img src="https://resizing.flixster.com/PYMILH2RwjmJ3uCZyBAEDihOIG4=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvUlRUVjI3OTYxMS53ZWJw" alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal22">
+          <span class="mt-2 pb-2">Lucifer</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/VRufAQk2OEAZ1QjG47KwN93XuHM=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vODE3MWViYjctYjYzNS00OTcwLThhMTctZTQyYjc1MjNlNjg0LmpwZw==" alt="Trending 3" data-bs-toggle="modal" data-bs-target="#netflixModal23">
+            <span class="mt-2 pb-2">The Lincoln Lawyer</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+          <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p20923_p_v10_aa.jpg" alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal24">
+          <span class="mt-2 pb-2">Lost in Space</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABekVGEJ0F6iwUD4sbNTs1OPPH2n-y6JutfPnMg5e0f8l6vXldLqwwSlHhE1N84oldmwP7PHf5Me70cEJJ2-1LJNInV6XJEJQQHHwt8BdvmLokb6tet_em8aziykwWCa2tGD_8Q.jpg?r=5c7" alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal25">
+              <span class="mt-2 pb-2">Cobra Kai</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/0xxuABVVuzJrUT130WFHKE-irEg=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vNzUyMTFhOTktZTU4Ni00ODkyLWJlYjQtZTgxYTllZmU2OGM0LmpwZw==" alt="Trending 6" data-bs-toggle="modal" data-bs-target="#netflixModal26">
+              <span class="mt-2 pb-2">Stranger things</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABQJUDtP3lSDiY9ySqhy_I9E2wEZbLm9gaERTay7afjmwCA8_qfKdASI3Bty2gGRIt-7gF1ycGYs7SQY9u0JnHjSA4hTPJHghbFVNOZTMBD2D2nJu-BtLPgAhgchUZqOLw5GfwA.jpg?r=bd4" alt="Trending 7" data-bs-toggle="modal" data-bs-target="#netflixModal27">
+              <span class="mt-2 pb-2">Sweet Tooth</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://m.media-amazon.com/images/M/MV5BMmM1ODg0MjktY2U3ZC00ZDc4LTkxMjAtMzljY2VkZmI3MmE5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal28">
+              <span class="mt-2 pb-2">Snowpiercer</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://images.squarespace-cdn.com/content/v1/5b39608d75f9eef54c62c3f0/1580599323398-MMXFMPQ15JZL2JAJDOBW/MV5BNjZkNzY4M2ItOWY0Ni00Y2ViLWE1NjItOTIyYzZjMzg5M2E1XkEyXkFqcGdeQXVyMTkxNjUyNQ%40%40._V1_.jpg?format=2500w" alt="Trending 9" data-bs-toggle="modal" data-bs-target="#netflixModal29">
+              <span class="mt-2 pb-2">Lockey & Key</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p19575866_b_v13_ab.jpg" alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal30">
+              <span class="mt-2 pb-2">Dynasty</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi2">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+<!-- ------------------------------------award winning shows-------------------------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">Award-Winning Tv shows</div>
+        <div class="swiper-container3">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+             <img src="https://m.media-amazon.com/images/M/MV5BZjkxZWJiNTUtYjQwYS00MTBlLTgwODQtM2FkNWMyMjMwOGZiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal31">
+              <span class="mt-2 pb-2">Money Heist</span>
+             </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://m.media-amazon.com/images/M/MV5BZmYyYTczZGYtMmM4MC00OWRiLWFlN2ItZTA4ODVlZjljOWNjXkEyXkFqcGc@._V1_.jpg" alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal32">
+              <span class="mt-2 pb-2">Crash Landing on You</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/0xxuABVVuzJrUT130WFHKE-irEg=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vNzUyMTFhOTktZTU4Ni00ODkyLWJlYjQtZTgxYTllZmU2OGM0LmpwZw==" alt="Trending 3" data-bs-toggle="modal" data-bs-target="#netflixModal33">
+              <span class="mt-2 pb-2">Stranger things</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+               <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABQJUDtP3lSDiY9ySqhy_I9E2wEZbLm9gaERTay7afjmwCA8_qfKdASI3Bty2gGRIt-7gF1ycGYs7SQY9u0JnHjSA4hTPJHghbFVNOZTMBD2D2nJu-BtLPgAhgchUZqOLw5GfwA.jpg?r=bd4" alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal34">
+              <span class="mt-2 pb-2">Sweet Tooth</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+          <img src="https://m.media-amazon.com/images/M/MV5BMTNjNGU4NTUtYmVjMy00YjRiLTkxMWUtNzZkMDNiYjZhNmViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal35">
+              <span class="mt-2 pb-2">One Piece</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://www.justwatch.com/images/poster/322165330/s718/the-empress.jpg" alt="Trending 6" data-bs-toggle="modal" data-bs-target="#netflixModal36">
+          <span class="mt-2 pb-2">The Empress</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://mykoreankitchen.com/wp-content/uploads/2022/09/Extraordinary-Attorney-Woo-2022-poster-220x330.jpg" alt="Trending 7" data-bs-toggle="modal" data-bs-target="#netflixModal37">
+            <span class="mt-2 pb-2">Extraordinery Attorney Woo</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+               <img src="https://puzzlemania-154aa.kxcdn.com/products/2024/puzzle-clementoni-1000-pieces-netflix-squid-game.webp" alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal38">
+              <span class="mt-2 pb-2">Squid game</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BOWRkY2ZlZTYtNmFiZC00NThjLWFjZTItODZkNjIxZDA2NDU4XkEyXkFqcGc@._V1_.jpg" alt="Trending 9" data-bs-toggle="modal" data-bs-target="#netflixModal39">
+              <span class="mt-2 pb-2">Little women</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://m.media-amazon.com/images/I/817QBrXk5DL._UF1000,1000_QL80_.jpg" alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal40">
+             <span class="mt-2 pb-2">The Crown</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi3">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+<!-- -------------------------------------------------K-drama-------------------------------------------- -->
+
+      <div class="trending-section">
+        <div class="trending-title">K-Dramas </div>
+        <div class="swiper-container4">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://www.travelistheway.com/wp-content/uploads/2024/03/Queenoftears-dama-coreen.jpg" alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal41">
+              <span class="mt-2 pb-2">Queen Of Tears</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p25977363_b_v13_aa.jpg" alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal42">
+              <span class="mt-2 pb-2">My Demon</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://rukminim2.flixcart.com/image/850/1000/kri3xjk0/poster/v/r/z/large-crash-landing-on-you-korean-tv-series-poster-k-drama-original-imag5a4mgz7nmbwa.jpeg?q=90&crop=false" alt="Trending 3"data-bs-toggle="modal" data-bs-target="#netflixModal43">
+              <span class="mt-2 pb-2">Crash Landing on you</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://images.ctfassets.net/4cd45et68cgf/5VqlXa2ugdHjhE5xTohPhP/808d9f8e79ff294fd2b270b80fc6cd5d/ENUS_Mr-Plankton_TeaserKA_Vertical_RGB_PRE.jpg?w=1200" alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal44">
+              <span class="mt-2 pb-2">Mr. Plankton</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BYjExMzg4MTAtZGM5OC00Njc3LWExYjctYjQ4YWJjZWYwYjViXkEyXkFqcGc@._V1_.jpg" alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal45"></a>
+              <span class="mt-2 pb-2">Hospital Playlist</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://rukminim2.flixcart.com/image/850/1000/kri3xjk0/poster/1/n/0/large-start-up-poster-start-up-print-startup-print-startup-original-imag5a7ecghhvy2q.jpeg?q=90&crop=false" alt="Trending 6"  data-bs-toggle="modal" data-bs-target="#netflixModal46">
+              <span class="mt-2 pb-2">Start-Up</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://resizing.flixster.com/Tc_Ht0dmBUAXty4bhlgUVkVdang=/fit-in/352x330/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p28671415_b_v9_ab.jpg" alt="Trending 7"  data-bs-toggle="modal" data-bs-target="#netflixModal47">
+              <span class="mt-2 pb-2">When the phone Rings</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://s.isanook.com/mv/0/ui/24/121457/Sanook_A-Business-Proposal-[Netflix-Series].jpg" alt="Trending 8"  data-bs-toggle="modal" data-bs-target="#netflixModal48">
+          <span class="mt-2 pb-2">Business Proposal </span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://c8.alamy.com/comp/2DA5DMM/record-of-youth-aka-chungchungirok-poster-from-left-byeon-woo-seok-park-so-dam-park-bo-gum-season-1-premiered-in-the-us-sep-7-2020-photo-netflix-courtesy-everett-collection-2DA5DMM.jpg" alt="Trending 9"  data-bs-toggle="modal" data-bs-target="#netflixModal49">
+              <span class="mt-2 pb-2">Records of Youth</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://paintingsbynumberskit.com/wp-content/uploads/2022/05/our-beloved-summer-serie-poster-paint-by-number.jpg" alt="Trending 10"  data-bs-toggle="modal" data-bs-target="#netflixModal50">
+              <span class="mt-2 pb-2">Our Beloved Summer</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi4">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+<!-- -------------------------------------------international shows------------------------------------------- -->
+
+      <div class="trending-section">
+        <div class="trending-title">International Tv Dramas</div>
+        <div class="swiper-container5">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://www.movienco.co.uk/carteles-series/2000/2059/001_p.jpg" alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal51">
+             <span class="mt-2 pb-2">Berlin</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://resizing.flixster.com/0Vfn5gE3Kv0xit0Td7VEBbCl14g=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjkyNzEyMS53ZWJw" alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal52">
+            <span class="mt-2 pb-2">Elite</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://i.pinimg.com/originals/39/10/f1/3910f14c87b70b0769b6ab489f308ba2.jpg" alt="Trending 3" data-bs-toggle="modal" data-bs-target="#netflixModal53">
+            <span class="mt-2 pb-2">Strong Girl Naam-Soon</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://thewordyhabitat.com/wp-content/uploads/2022/05/the-king-eternal-monarch-poster.jpeg" alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal54">
+              <span class="mt-2 pb-2">The King:Eternal Monarch</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+               <img src="https://image.tmdb.org/t/p/original/eLmsw0b1EJhdVBBfwdEGvONU90U.jpg" alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal55">
+              <span class="mt-2 pb-2">The Glory</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://lh5.googleusercontent.com/proxy/fqHEk52k7C6_gKF3Kma_Lu6ffuXwsPj6aYISKs0Ple4c0mIQxJ0fnteL4DjxkeNvhsaxIK0AYzfmw23VQHDKOr63YAYL0fSV-_HfH1uPD0AznE_BYkqLoQ" alt="Trending 6" data-bs-toggle="modal" data-bs-target="#netflixModal56">
+              <span class="mt-2 pb-2">Doctor Slump</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://dnm.nflximg.net/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABShnE9GV_eKa4L5EbAan5HPGMnHeS4KOGyiIAXZGpGi47kXh9ThwKrdvuURVUK8nvaaS0Fm14gJCuW4HPqbeI90ZNe0OdQldOGIPR-o8Hr4gjhmjcdPq-UkYGDMFAS5Ihf54Mw.jpg?r=8fe" alt="Trending 7" data-bs-toggle="modal" data-bs-target="#netflixModal57">
+              <span class="mt-2 pb-2">Raising Voice</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://www.justwatch.com/images/poster/316814051/s718/the-8-show.jpg" alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal58">
+           <span class="mt-2 pb-2">The 8 Shows </span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+          <img src="https://c8.alamy.com/comp/2DA5DMM/record-of-youth-aka-chungchungirok-poster-from-left-byeon-woo-seok-park-so-dam-park-bo-gum-season-1-premiered-in-the-us-sep-7-2020-photo-netflix-courtesy-everett-collection-2DA5DMM.jpg" alt="Trending 9" data-bs-toggle="modal" data-bs-target="#netflixModal59">
+          <span class="mt-2 pb-2">Records of Youth</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+               
+              <img src="https://m.media-amazon.com/images/M/MV5BZDE0MTM5YjgtMzNhOS00NWE2LTkxN2EtMzg0NWRmODBmMDA5XkEyXkFqcGc@._V1_.jpg" alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal60">
+              <span class="mt-2 pb-2">Sweet Home</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi5">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+<!-- ----------------------------------------------watch together for older kid--------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">Watch Together For Older Kids</div>
+        <div class="swiper-container6">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BYmU1Y2U0NzEtNTllNS00YzZhLWI2YzItNWE4Y2FjOGMxN2QyXkEyXkFqcGc@._V1_.jpg" alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal61">
+              <span class="mt-2 pb-2">Unicorn Academy</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+          <img src="https://preview.redd.it/first-poster-for-jurassic-world-chaos-theory-v0-eqfqad1ej3rc1.jpeg?width=640&crop=smart&auto=webp&s=223c68f84b65ee836c68b446f78ada416f13d905" alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal62">
+          <span class="mt-2 pb-2">Jurassic World: Chaos Thoery</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+               <img src="https://m.media-amazon.com/images/M/MV5BZDU5MDNiMGItYjVmZi00NDUxLTg2OTktNGE0NzNlNzM4NzgyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 3" data-bs-toggle="modal" data-bs-target="#netflixModal63">
+            <span class="mt-2 pb-2">Kung fu Panda</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://pics.filmaffinity.com/jurassic_world_camp_cretaceous-418739382-large.jpg" alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal64">
+            <span class="mt-2 pb-2">jurassic World camp Cretaceous</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://m.media-amazon.com/images/M/MV5BNGE3MGVjM2YtN2UzYy00N2NiLTljMzktMzE5ZTk4YzI2OGEwXkEyXkFqcGc@._V1_.jpg" alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal65">
+            <span class="mt-2 pb-2">spellbound</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BMTU1MzAwODM4OF5BMl5BanBnXkFtZTgwMjA4OTY5NDM@._V1_FMjpg_UX1000_.jpg" alt="Trending 6" data-bs-toggle="modal" data-bs-target="#netflixModal66">
+            <span class="mt-2 pb-2">Lost in space</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BYThiY2JkMzMtNmFiYy00NWVhLWE3ZjUtOTE3OTRjYmMwZWViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trending 7" data-bs-toggle="modal" data-bs-target="#netflixModal67">
+            <span class="mt-2 pb-2">The Worst Witch</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgj04c6UJZLuMGQOtgQMIuLVHXyKG23ViAvQqfsmG8WYTRSW4oBYUG48wHvlXZleIHoPrReCJubzUimL37PYZuykUeg3oeo-gjq-1fuGEEsS-7oIoSldbpwvHtwNT7Mu_GC02NwmiGDVSr06L8w7Wng4MXDyDgXWnKuw6FYrQTR0JVAZeFGT06kIJIPhi4/s630/Leo%20Poster.jpg" alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal68">
+              <span class="mt-2 pb-2">Leo</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://momthemagnificent.com/wp-content/uploads/2020/12/7Lw_wlgM-691x1024.jpeg" alt="Trending 9" data-bs-toggle="modal" data-bs-target="#netflixModal69">
+          <span class="mt-2 pb-2">We can be Heroes</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://upload.wikimedia.org/wikipedia/en/8/87/Trollhunters_poster.jpg" alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal70">
+           <span class="mt-2 pb-2">Trollhunters</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi6">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+<!-- ------------------------------------romantic tv shows------------------------------------------------------- -->
+      <div class="trending-section">
+        <div class="trending-title">Romantic Tv Shows</div>
+        <div class="swiper-container7">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://images.ctfassets.net/4cd45et68cgf/5VqlXa2ugdHjhE5xTohPhP/808d9f8e79ff294fd2b270b80fc6cd5d/ENUS_Mr-Plankton_TeaserKA_Vertical_RGB_PRE.jpg?w=1200" alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal71">
+              <span class="mt-2 pb-2">Mr. Plankton</span>
+            </div>
+            
+            <div class="swiper-slide d-flex flex-column">
+          <img src="https://i0.wp.com/bgn2018media.s3.amazonaws.com/wp-content/uploads/2020/08/27110555/Screen-Shot-2020-08-12-at-11.09.17-AM.png?fit=534%2C696&ssl=1" alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal72">
+        <span class="mt-2 pb-2">Its Okey to not be okey</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://m.media-amazon.com/images/M/MV5BMzk4MWYxZDMtM2MzOS00ZDAzLWJhODAtZDUxZjcxZjY5YjFlXkEyXkFqcGc@._V1_.jpg" alt="Trending 3" data-bs-toggle="modal" data-bs-target="#netflixModal73">
+            <span class="mt-2 pb-2">destined with you</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://m.media-amazon.com/images/M/MV5BNDFkYmM3MGMtYWIwNC00ZDkxLWFjZjItYmQ4NTdiZWNjMzczXkEyXkFqcGc@._V1_.jpg" alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal74">
+            <span class="mt-2 pb-2">Hometown cha-cha-cha</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://fr.web.img6.acsta.net/pictures/23/05/17/15/00/5722121.jpg" alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal75">
+            <span class="mt-2 pb-2">Xo , Kitty</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://m.media-amazon.com/images/M/MV5BZWZhMjI4MzYtYjY2Mi00ZmNkLWFkYjMtZjc3NzRiZDg2NjA0XkEyXkFqcGc@._V1_.jpg" alt="Trending 6" data-bs-toggle="modal" data-bs-target="#netflixModal76">
+               <span class="mt-2 pb-2">Doctor Slump</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://movieassetsdigital.sgp1.cdn.digitaloceanspaces.com/original/c4cb5d8b3aeffed45611f763ae69a7cafdf5b491" alt="Trending 7" data-bs-toggle="modal" data-bs-target="#netflixModal77">
+            <span class="mt-2 pb-2">The king: Eternal Monarch</span>
+            </div>
+            <div class="swiper-slide d-flex flex-column">
+            <img src="https://m.media-amazon.com/images/M/MV5BM2U2NjA5NmUtNTUzYi00NDdjLWEwZjgtZGFmYjAzNzk3ZjFkXkEyXkFqcGc@._V1_.jpg" alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal78">
+            <span class="mt-2 pb-2">Ginny & georgia</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://www.justwatch.com/images/poster/202561955/s166/record-of-youth" alt="Trending 9" data-bs-toggle="modal" data-bs-target="#netflixModal79">
+             <span class="mt-2 pb-2">Record of youth</span>
+            </div>
+
+            <div class="swiper-slide d-flex flex-column">
+              <img src="https://upload.wikimedia.org/wikipedia/en/f/fb/Run_On_TV_series.jpg" alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal80">
+            <span class="mt-2 pb-2">Run on</span>
+            </div>
+          </div>
+          <!-- Navigation -->
+          <div class="nevi7">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+
+
+
+
+
+     
+
+
+        
+
+      
+
+    <!-- Footer -->
+    <!-- <footer>
+        © 2024 Try Tech Clone. Built with ❤️. <a href="#">Privacy</a> | <a href="#">Terms of use </a>
+        <div class="container mt-2 d-flex">
+          
+          <select>
+            <option value="en">English</option>
+            <option value="es">Hindi</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+        </select>
+
+        </div>
+    </footer> -->
+    <div class="footer mt-5">
+      <div class="contact-section">
+         <a href="HelpCenter.html" class="help" > <span class="help">Need more help?</span></a>
+         <a href="contact.html"> <button class="contact-btn">Contact Us</button></a>
+      </div>
+  
+      <div class="dropdown1">
+          <!-- <select>
+              <option value="en">English</option>
+              <option value="es">Hindi</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
+          </select> -->
+          <a href="ott.html"><button class="btn btn-danger w-25 mt-3">Join now</button></a>
+      </div>
+  
+      <div class="links">
+          <a href="TermOfUse.html">Terms of Use</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="cookiePreferances.html">Cookie Preferences</a>
+          <a href="CorporateInformation.html">Corporate Information</a>
+      </div>
+      
+  </div>
+
+
+  <!-- -----------------------------modal Section -------------------------------------------- -->
+ <div class="mod">
+  <!-- -------------------------------------modal for tv comedies--------------------------- -->
+  <div class="modal fade" id="netflixModal1" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://www.anantvijaysoni.in/wp-content/uploads/2019/08/The-Kapil-Sharma-Show-Online-Tickets-Booking-Free-Entry-Passes-in-Mumbai.jpg" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>The Kapil Sharma show</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA1.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal2" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://occ-0-8407-1722.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTgxgU7fiZDcwJZwHxqOybrOptMV_uUpP1EF1WEYFtzTqwAcFQ19soU40DbIguXfFYgr7a67IWFk87NkFlCKnaK-uFtCqJMboNgQK9Tpew-5uNlJxAL8fBUXE27qOwvjl67cog.webp?r=b69" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>King The Land</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA2.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal3" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://occ-0-8407-33.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABe12cwQTfvly3wFQnWV_EE0J9g32u59cjPOr7aRzdaCaD8i5nH0CaKC2p-B4B0sBiCB8hsZ8wip-pfqpmU4AJVU5ijM97w9v9GQ40cAoPfa52LGWvZVTWx5gUFIezHhXMyVxHA.webp?r=3e4" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>Queen Of Tears</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA3.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal4" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://occ-0-8407-114.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABQDNpzTdHavcBsHDK5j2oHYcs55-NWkxm3kAwXzDPclQdiE7REv0oYVdUhXvhE-9PG19WoZyjk6y9U8dBnkqlXLMcWFG98Pt8eL4gqHVIgMm9c7p227l3w8-ZkfhKcAfRKZU5A.jpg?r=44c" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>My Demon</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA4.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal5" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://s.isanook.com/mv/0/ud/34/171599/sanook_thumbnail_2023-2024-.jpg?ip/crop/w670h402/q80/jpg" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>Love Next Door</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA5.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal6" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://blog.smart.com.ph/wp-content/uploads/2022/02/Crash-Landing-on-You-Smart-Signature-Plans.jpg?w=1024" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>Crash Landing On you</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA6.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal7" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://miro.medium.com/v2/resize:fit:1400/1*OnWg2HnDAv6yK-JbieWniw.jpeg" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>Greek Girl</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA7.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal8" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://occ-0-8407-37.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABQEjJfnMi9TXaKoF9qCwqJFr7u4os-0jU4BdQtPpKqA4qlXipyQRbn6x12tiWr3G93tqhHmT_tHefwiPgvORm0tOeEsw-6ZezuwbiWZ6iih6sdwapOruT1QksFSIehXBscq6.jpg?r=5ad" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>Its Okey To Not Be Okey</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA8.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal9" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://occ-0-8407-1722.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABa6R0zawmvBIlpRMxH9N2cD-aKWcmyqM8q3d_u41QnzVuaTgU8vxi1cWa4Q5oLSVCRjVDIoC0opTfZO_s-hyMzZl1_8PGK449ohLgy9CvPNXpKKkgCeta667RBPXODjZ2UWr.jpg?r=095" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>Business Proposal</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA9.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal10" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <!-- Background Image -->
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvTthDkqbLHrzYKqUbeiDISZzMWBrB_ZOdNA&s" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          <!-- Text Below Image -->
+          <h5>Hospital Playlist</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetailsA1.html10"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- --------------------------------------------------Hindi-language  Movies------------------------------- -->
+<div class="modal fade" id="netflixModal11" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://api.tomorrowsindia.com/uploads/image/ADAps4KKt0GpwoY9H0eN_Do-Patti_TomorrowsIndia.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Do Patti</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB1.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal12" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://www.jagranimages.com/images/newimg/11112024/11_11_2024-sikandar_ka_muqaddar_23829380.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Sikandar Ka Mukaddar</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB2.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal13" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://th-i.thgim.com/public/entertainment/movies/lkbaye/article68515973.ece/alternates/LANDSCAPE_1200/GUxBszcawAA5p1O.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Sector 36</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB3.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal14" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/DmsTOJEQ_lw/maxresdefault.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Wild Wild Punjab</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB4.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal15" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://occ-0-8407-1723.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTyVUbrSz_9EusshU8sEfjSdUvVmHCAK5EuRhx0tTYnSpJaMtTXNSQFkk8OyaxaQiDcs0Ez9n_i_3_ECwYVmVNAkiGQg_KkwMECfA-NqjMx-V9xRjlIq0oc_iF41-fZeay8vjQ.jpg?r=54f" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Maharaj</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB5.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal16" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202408/the-great-indian-kapil-show-155721617-16x9_0.jpg?VersionId=4Yrq1BWn2mRFAY2g7_NRkp39zmqUZZSN&size=690:388" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>The Kapil Sharma Show</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB6.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal17" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/5wSQ4E4u8OM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDJWSdrhB1YOzNNSXdQ6MVDCbdChQ" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Phir Aayi Hasseen Dillruba</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB7.html7"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal18" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://m.media-amazon.com/images/M/MV5BNzRkNWM1ODAtMjY3Ni00YjkwLThmYmUtYmNjYTRlN2NlZWE4XkEyXkFqcGc@._V1_.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Murder Mubarak</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB8.html8"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal19" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/D59MZPV4wPc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBlSLhLcTkOP8Y0C8O1_6vAcrPGVA" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Darlings</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB9.html9"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal20" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://www.adgully.com/img/800/202012/1x2_gunjan-saxena_eng-1.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Gunjan Saxena</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsB10.html10"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -------------------------------------------------us tv show -------------------------------------------- -->
+<div class="modal fade" id="netflixModal21" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://symmetryjunction.wordpress.com/wp-content/uploads/2024/03/manifest-season-2.jpg?w=1920&h=768&crop=1" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Manifest</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC1.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="netflixModal22" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://pbs.twimg.com/media/Ey7Z3zuWUAoYgbl.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Lucifire</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC2.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal23" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://resizing.flixster.com/rHiyRPBxfIWxyUVjiqN1FrmDfAM=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p21975965_b_h8_aa.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>The Lincoln Lawyer</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC3.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="netflixModal24" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://vargiskhan.com/log/wp-content/uploads/2019/08/lost-in-space-review.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Lost In Space</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC4.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal25" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://nathantimmel.com/wp-content/uploads/2022/02/cobra-kai-4.jpeg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Cobra kai</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC5.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="netflixModal26" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://media.nu.nl/m/xkfxrkaar3is_wd854/soundtrack-tweede-seizoen-stranger-things-net-zo-intens-als-verhaallijn.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Stranger Things </h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC6.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="netflixModal27" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://motcreative.com/wp-content/uploads/2021/06/SWEET_TOOTH_MOTCREATIVE_POSTER_NETFLIX_3.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Sweet Tooth</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC8.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="netflixModal28" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://bleedingcool.com/wp-content/uploads/2024/06/SnowpiercerS4_H_3840x2160_TheFinalSeason_July21-2000x1125.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>SnowPiercer</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC8.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="netflixModal29" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://blog.vidangel.com/wp-content/uploads/2022/08/LockeAndKey_Blog_Image.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Lockey & Key</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC9.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="netflixModal30" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://preview.redd.it/season-5-poster-v0-k6ifdsrc5ni81.png?auto=webp&s=ab8181d784e1e314619f9b30d56f6894e1c98ec4" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Dynasty</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsC10.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ------------------------------------award winning shows-------------------------------------------- -->
+
+<div class="modal fade" id="netflixModal31" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://cdn.zeebiz.com/sites/default/files/styles/zeebiz_850x478/public/2021/09/02/158237-money-heistnetflix-india-twitter.jpg?itok=XQsZo2tx" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Money heist</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD1.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal32" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/3G137_qm-R0/maxresdefault.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Crash Landing On You</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD2.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal33" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://media.nu.nl/m/xkfxrkaar3is_wd854/soundtrack-tweede-seizoen-stranger-things-net-zo-intens-als-verhaallijn.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Stranger Things</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD3.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal34" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://trailerparkgroup.com/wp-content/uploads/2021/07/MicrosoftTeams-image-7.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Sweet Tooth</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD4.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal35" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://fossbytes.com/wp-content/uploads/2022/11/one-piece.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>One Piece</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD5.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal36" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://resizing.flixster.com/v_7VMGrF_aTLc6y4tnzREaoH-7o=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p22828922_b_h8_ac.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>The Empress</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD6.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal37" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://occ-0-8407-33.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbnby54svePv1NYgRipeEhV4XadgZK4JLcQ_ZXFpnNM2YNJ9LgqJpz86CuHKi54XP62J0FzQilNbHz2FIk4OF7gsY-AYfMERy1ByheVer6iMp_n4nq1GLrR1IEnvSO4P2X34hA.jpg?r=141" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Extraordinery Attorney Woo</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD7.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal38" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://images.ottplay.com/images/squid-game-poster-1706971177.jpg?impolicy=ottplay-20210210&width=1200&height=675&format=webp&quality=50" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Squid Game</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD8.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal39" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://api-cdn.arte.tv/img/v2/image/otW5JBchvWBty2VDi3er6W/1920x1080?type=TEXT&watermark=true" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Little Women</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD9.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal40" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://rumblevfx.com/wp-content/uploads/2022/12/TC5_new_button.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>The Crown</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsD10.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- -------------------------------------------------K-drama-------------------------------------------- -->
+<div class="modal fade" id="netflixModal41" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://occ-0-8407-1722.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABe12cwQTfvly3wFQnWV_EE0J9g32u59cjPOr7aRzdaCaD8i5nH0CaKC2p-B4B0sBiCB8hsZ8wip-pfqpmU4AJVU5ijM97w9v9GQ40cAoPfa52LGWvZVTWx5gUFIezHhXMyVxHA.webp?r=3e4" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Queen Of Tears</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE1.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal42" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://s1.dmcdn.net/v/WjI8c1cwi5EMyU14p/x1080" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>My Demon</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE2.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal43" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://pbs.twimg.com/media/FyRUmW1WYAol7PX.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Crash Landing on You</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE3.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal44" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/b-uLcqLtueU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD3vGurzb7puyRiBuC0QprKz4d-5w" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Mr. Plankton</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE4.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal45" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://ss-images.saostar.vn/w700/2020/05/21/7519707/untitled-2.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Hospital Playlist</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE5.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal46" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://www.kkday.com/en/blog/wp-content/uploads/kr_Start-Up-poster-tvN-1170x630.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Start-Up</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE6.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal47" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/LwLeVxxazn4/maxresdefault.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>When The Phone Rings</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE7.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal48" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://resizing.flixster.com/50HR4NgmUoW72E60_TpsXXagnxU=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p21402965_b_h8_ad.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Business Proposal</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE8.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal49" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZl-FzJ0I7wp64bVFgyQV4QlDU_ZkfR7isjg&s" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Records Of Youth</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE9.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal50" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://img3.yna.co.kr/etc/inner/EN/2022/01/24/AEN20220124003300315_01_i_P2.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Our Beloved Summer</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsE10.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- -------------------------------------------international shows------------------------------------------- -->
+
+<div class="modal fade" id="netflixModal51" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://pic-bstarstatic.akamaized.net/ugc/41f80077aa574e121adc7461e611f9a8.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Berlin</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF1.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal52" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCxGWJAICES4uZHWvQqRIU1IIE2cCOxhPEbw&s" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Elite</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF2.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal53" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://occ-0-8407-114.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdZQdk0FbMw8KkQ2LWBTFh1_6TrFPKhQ6FBQEQihz3vf6QyJT_xMRLkvyETUexVNZR7N6clzuyts1IgVX2SHC-zwhAxtz8QiKoEG.jpg?r=b45" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Strong Girl Naam-Soon</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF3.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal54" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.mydramalist.com/4bP2Yf.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>The king:Etenal Monarch</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF4.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal55" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i0.wp.com/giaallana.com/wp-content/uploads/2023/02/20230209_081054_0000.png?fit=690%2C388&ssl=1" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>The Glory</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF5.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal56" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/jSkkF-MIhnk/mqdefault.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Doctor Slump</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF6.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal57" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/_V1G6AVwGN0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCimSupOd6sqdKSeSxsMb3UPBrwZA" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Raising Voice</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF7.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal58" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://rollingstoneindia.com/wp-content/uploads/2024/05/The-8-Show-Poster-Netflix.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>The 8 Shows</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF8.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal59" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://occ-0-8407-1723.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbM_vSEhtyHzOYir_TcX2O4Apnw1RjMDOUdi5Uem4gaFhoybAC830Qgo4Va0Q0OlFgTAoeIwSJZg8T_5KuTMhIn8wEw1QTUCKI1dFuazAKJuCpVW3dDDSMgfYGmCASQYUd4nVQ.jpg?r=b3f" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Record Of Youth</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF9.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal60" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/11/Sweet-Home.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Sweet Home</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsF10.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ------------------------------watch together for older kid---------------------------------------------- -->
+
+<div class="modal fade" id="netflixModal61" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://www.youloveit.com/uploads/posts/2023-08/1692192808_youloveit_com_unicorn_academy.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Unicorn Academy</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG1.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal62" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://cdn.shortpixel.ai/spio/ret_img,q_orig,to_webp,s_webp/thecosmiccircus.com/wp-content/uploads/2024/05/jw_banner6120365061996403496.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Jurassic World:Choes Thoery</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG2.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal63" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://occ-0-8407-1723.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABewLMJrpIRVrZuhZu-k0UbVGDFq9LyhxGoBLt0dvCPNqR2A0r1IGAWF84dhFxLoCC4Nr41_X959XNeibIscm-Okg9zYjwLHCrEKGk95MKEzR2xaHxxaydUKPx5FP6NtOWPde-g.jpg?r=7f6" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Kung Fu Panda</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG3.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal64" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://w0.peakpx.com/wallpaper/370/892/HD-wallpaper-tv-show-jurassic-world-camp-cretaceous.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>jurassic world camp cretaceous</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG4.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal65" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i0.wp.com/thefutureoftheforce.com/wp-content/uploads/2024/07/EN-US_Netflix_Spellbound_KA_9X16_RGB_PRE_op2.jpg?fit=1024%2C729&ssl=1" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>spellbound</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG5.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal66" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://vargiskhan.com/log/wp-content/uploads/2019/08/lost-in-space-review.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Lost In Space</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG6.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal67" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://resizing.flixster.com/cKsKgXh1ZHYEjcaR731nrCqYwcI=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p13630659_b_h8_at.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>The Worst Witch</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG7.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal68" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/KxKoX3Hn7YA/maxresdefault.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Leo</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG8.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal69" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://occ-0-8407-33.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABcpPcTri53JK4n4cs4027kX5trzquCr3iC5IZXCJ_95G4pdkbDxMW8oSP1qy9eFIVG7gX2U94EdYODFjCp88TqikuScI0SPbblN0gGonvAyvqHMB05eEC2ivxWGSputJYg2S4A.jpg?r=0fd" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>We Can Be Heroes</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG9.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal70" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://lh6.googleusercontent.com/proxy/e800aRXneXz8hSUpcoBVq4jr8ITEQHgtPQt2__n72mdgX0Da3y-er71zOeUGgsGkrCSmuCNOd5NAEL3_FnhApe69mure62hcbfT6sgMTlvA" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Trollhunters</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsG10.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -----------------------------------------------romantic shows------------------------------------------- -->
+
+<div class="modal fade" id="netflixModal71" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://s359.kapook.com/pagebuilder/b0dc28db-b62b-4732-b63d-e79295332f20.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Mr. Plankton</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH1.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal72" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://rukminim2.flixcart.com/image/850/1000/kzsqykw0/poster/w/a/y/small-it-ok-not-to-be-seo-yea-ji-and-kim-soo-hyun-korean-drama-original-imagbq933z6jqums.jpeg?q=90&crop=false" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Its Okey To Not Be okey</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH2.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal73" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://m.media-amazon.com/images/M/MV5BY2RlMDg3NjUtZTc5ZS00NTA5LThhZjMtZDMxZTUwODM3NzcyXkEyXkFqcGc@._V1_.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Destined With You</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH3.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal74" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://occ-0-8407-1722.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdn1JTrZ-GEqAEMXwUIsjssKzBr-9YdBUjpdw50sHkDw1Hc5npaHIhX3HhrluwmdtSqByXeWPU2NdibCgDTfgMdvYpTKhpkJRT08HbKRlB7PZx2ZadrwyUf8-K_AiT14ZTwxsw.jpg?r=fbf" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Hometown Cha-Cha-Cha</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH4.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal75" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/4SJq63dqL5I/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCRELmsodeNpeKCNhMTNnU0VjZVxA" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Xo,Kitty</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH5.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal76" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://s.yimg.com/ny/api/res/1.2/_XF7nEXSkJ6wfoTncQb9PA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD02OTk-/https://media.zenfs.com/en/comingsoon_net_477/9cf37d87c7d8a21eda629494d2793ee2" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Doctor Slump</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH6.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal77" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://i.ytimg.com/vi/7zanXjUaILc/maxresdefault.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>The King:Eternal Monarch</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH7.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="netflixModal78" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://lh5.googleusercontent.com/proxy/-OfQEeJA8f1Ia7HI3izCvhSO-FPm26_fzo9hpPBaZFOyoGAXyoOt4X-xJNIiAjpuGR7Nw4cVyrhxVqYfFc3C8BfGm5AFNsQHmhfVPE3RZBA-SU5OuQ" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Ginny & Georgia</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH8.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal79" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://occ-0-8407-1723.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbM_vSEhtyHzOYir_TcX2O4Apnw1RjMDOUdi5Uem4gaFhoybAC830Qgo4Va0Q0OlFgTAoeIwSJZg8T_5KuTMhIn8wEw1QTUCKI1dFuazAKJuCpVW3dDDSMgfYGmCASQYUd4nVQ.jpg?r=b3f" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Record Of Youth</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH9.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="netflixModal80" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <!-- Background Image -->
+        <img src="https://ih1.redbubble.net/image.2183426100.6115/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Amaran">
+      </div>
+      <div class="modal-footer-content">
+        <!-- Text Below Image -->
+        <h5>Run On</h5>
+        <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+        <p>
+          Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+        </p>
+        <a href="movieDetailsH10.html"><button class="get-started-btn">Get Started</button></a>
+        <p class="mt-2">Create or restart your membership</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+      autoplay: {
+        delay: 2000,      // 2 seconds delay between slides
+        disableOnInteraction: false,
+      },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+
+    const swiperr = new Swiper('.swiper-container1', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+
+
+    const swiperr1 = new Swiper('.swiper-container2', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView:2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+
+
+ const swiperr2 = new Swiper('.swiper-container3', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+    
+    
+     
+    const swiperr3 = new Swiper('.swiper-container4', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+
+
+
+    const swiperr4 = new Swiper('.swiper-container5', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+    
+    
+    const swiperr5 = new Swiper('.swiper-container6', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+    
+    
+    const swiperr6 = new Swiper('.swiper-container7', {
+      slidesPerView: 8,  // Show 8 slides at a time
+      spaceBetween: 10,  // Space between slides
+      loop: true,        // Loop slides
+    //   autoplay: {
+    //     delay: 2000,      // 2 seconds delay between slides
+    //     disableOnInteraction: false,
+    //   },
+      direction: 'horizontal',  // Horizontal sliding
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+    // Mobile devices
+    320: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    480: {
+      slidesPerView: 2,  // Show 2 slides on small screens
+      spaceBetween: 5,   // Reduce spacing for smaller screens
+    },
+    // Tablets
+    768: {
+      slidesPerView: 3,  // Show 3 slides on medium screens
+      spaceBetween: 10,
+    },
+    // Small desktops
+    1024: {
+      slidesPerView: 5,  // Show 5 slides
+      spaceBetween: 10,
+    },
+    // Large desktops
+    1200: {
+      slidesPerView: 5,  // Default behavior (8 slides)
+      spaceBetween: 10,
+    },
+  },
+    });
+    
+    
+     
+   
+    
+
+
+    </script>
+
+</body>
+</html>

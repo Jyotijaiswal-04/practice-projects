@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+
+  <link rel="stylesheet" href="ott.css">
+  <style>
+    .mod {
+      background-color: #141414;
+      color: #fff;
+    }
+
+    .mod .modal-content {
+      background-color: rgba(0, 0, 0, 0.8);
+      border: none;
+      border-radius: 10px;
+    }
+
+    .mod .modal-body img {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .mod .modal-footer-content {
+      padding: 5px;
+      color: white;
+    }
+
+    .mod .modal-footer-content h5 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .mod .modal-footer-content p {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .mod .get-started-btn {
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .mod .get-started-btn:hover {
+      background-color: darkred;
+    }
+
+    .mod .close-btn {
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .plan {
+      background-color: #4f1979;
+      border: none;
+      color: #fff;
+      font-size: 15px;
+      /* margin-top: 10px; */
+
+    }
+
+    .navbar-links .btn {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      font-size: 5px;
+      margin-right: 10px;
+    }
+
+    .navbar-logo .btn {
+      padding-top: 1px;
+      padding-bottom: 1px;
+      font-size: 5px;
+    }
+
+    .navbar-links a .plan {
+      padding: 3px;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+    .navbar-links a .si {
+
+      padding: 3px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="navbar-logo">
+        <!-- <a href="#">Brand</a> -->
+        <img src="New.png" height="30px" width="180px">
+        <a href="OnlyonNetflix.html"><button class="btn btn-light mt-2 fs-6 rounded-pill">Tv Shows</button></a>
+        <a href="suscribePage.html"><button class="btn btn-light mt-2 fs-6 rounded-pill">Subscribe</button></a>
+
+      </div>
+
+    </div>
+    <div class="navbar-links">
+
+
+
+      <!-- <a><button type="button" class="btn  ">
+          <select class=" en form-select " aria-label="Default select example">
+          <option selected>English</option>
+          <option value="1">Hindi</option>
+         
+        </select>
+      </button></a> -->
+      <!-- <a href="ott.html"><button type="button" class="btn btn-outline-light mt-2 fs-6 rounded-pill">Home</button> </a> -->
+      <a href="get4.html"><button type="button" class="btn plan btn-light mt-2 fs-6 rounded-pill"><i
+            style='font-size:17px' class='fas'>&#xf521;</i>&nbsp;BUY PLAN</button> </a>
+
+      <a href="signInPage.html"><button type="button" class="btn si btn-light mt-2 fs-6 rounded-pill">SIGN IN</button>
+      </a>
+
+    </div>
+  </nav>
+  <div class="meinhero">
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1 class="">Unlimited movies | TV shows and more.</h1>
+        <p class="text-light text-start">Enjoy Your Super Hit Movies Here...</p>
+        <p class=" text-white text-start">_________________________________</p>
+        <p class="text-light text-start">Watch anywhere | Cancel anytime.</p>
+        <p class="text-light rtw text-start pt-3 pb-3 fw-bold h6">Ready To watch ? Enter your Email to create or restart
+          your Membership</p>
+        <div class="res mb-5" id="res">
+          <div class="email mt-2">
+            <input type="text" id="email" placeholder="Email address" oninput="validateEmail()">
+            <span id="error-message" style="color: red; display: none;">Please fill in your email.</span>
+          </div>
+          <div>
+            <button class="btn get btn-danger text-light rounded-pill mt-2 p-2 mb-2" id="getStarted" disabled
+              onclick="redirectToPage()">Get Started &nbsp;></button>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- <p class="text-light text-center pt-3 pb-3 fw-bold h6">Ready To watch ? Enter your Email to create or restart your Membership</p>
+        <div class="res mb-5" id="res">
+        <div class="email mt-2">
+          <input type="text" id="email" placeholder="Email address" oninput="validateEmail()">
+          <span id="error-message" style="color: red; display: none;">Please fill in your email.</span>
+          </div>
+          <div>
+            <button class="btn get btn-danger text-light rounded-pill mt-2 p-2 mb-2" id="getStarted" disabled onclick="redirectToPage()">Get Started &nbsp;></button>
+          </div>
+</div>    -->
+
+  <!-- ......................................................tredingNow first---------------------------------------------- -->
+  <div class="trending-section">
+    <div class="trending-title text-white">Trending Top 10</div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-slide1">
+          <img src="https://stat4.bollywoodhungama.in/wp-content/uploads/2024/10/Do-Patti-12-322x402.jpg"
+            alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal11">
+          <div class="th" id="titu">
+            <img
+              src="https://imgeng.jagran.com/images/2024/10/25/article/image/do-patti-movie-review-1729839251977.webp"
+              id="thimg">
+            <h6>Do patti</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+</p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a href="#"><button type="button" class="btn btn-danger w-75">watch now</button></a>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide2">
+          <img
+            src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQAFaSRWgg-W1HkDFiXD3--6__091YBc1p8NCAAQqlLUlyF_p859dL2KNJ17Up1AnTQ2TcSEQ"
+            alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal12">
+          <div class="th2" id="titu">
+            <img
+              src="https://i.ytimg.com/vi/-ksSBITvPGI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD1ok11XcpgbxsLRT1ePWSWDOn1cg"
+              id="thimg">
+            <h6>Bad Newz</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+ </p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a href="#"><button type="button" class="btn btn-danger w-75 ">watch now</button></a>
+          </div>
+        </div>
+
+        <div class="swiper-slide swiper-slide3">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/Vicky_Vidya_Ka_Woh_Wala_Video.jpg/220px-Vicky_Vidya_Ka_Woh_Wala_Video.jpg"
+            alt="Trending 3" data-bs-toggle="modal" data-bs-target="#netflixModal13">
+          <div class="th3" id="titu">
+            <img
+              src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA1v60Ec.img?w=768&h=402&m=6&x=398&y=143&s=94&d=94"
+              id="thimg">
+            <h6>vickey vidhya</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+ </p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a href="#"><button type="button" class="btn btn-danger w-75">watch now</button></a>
+          </div>
+
+        </div>
+        <div class="swiper-slide swiper-slide4">
+          <img src="https://aniportalimages.s3.amazonaws.com/media/details/ANI-20240808065007.jpg" alt="Trending 4"
+            data-bs-toggle="modal" data-bs-target="#netflixModal14">
+          <div class="th4" id="titu">
+            <img
+              src="https://s3images.zee5.com/wp-content/uploads/sites/7/2020/08/Omeri-Laila-Avinash-Tiwari-and-Tripti-Dimri-1.jpg"
+              id="thimg">
+            <h6>laila majnu</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+ </p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <a href="#"><button type="button" class="btn btn-danger w-75">watch now</button></a>
+          </div>
+        </div>
+
+        <div class="swiper-slide swiper-slide5">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMGQ1MzkzZDYtMzg1YS00ODE0LTgyYTYtNDdkOWNjMDFhMmZjXkEyXkFqcGc@._V1_.jpg"
+            alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal15">
+          <div class="th5" id="titu">
+            <img
+              src="https://i.ytimg.com/vi/Y2kqe92m-ew/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAAW2ZEXWMRXoXfhKchSsBCRs2aGA"
+              id="thimg">
+            <h6>Tiger 3</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+ </p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <a href="#"><button type="button" class="btn btn-danger w-75">watch now</button></a>
+          </div>
+        </div>
+
+        <div class="swiper-slide swiper-slide6">
+          <img src="https://i.pinimg.com/236x/64/15/cb/6415cb69f4651186cd0d6e55037da48f.jpg" alt="Trending 6"
+            data-bs-toggle="modal" data-bs-target="#netflixModal16">
+          <div class="th6" id="titu">
+            <img
+              src="https://i.ytimg.com/vi/DnDprQRH5g4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCriD0lc28_rk-rUQJAQXnLzmDVQQ"
+              id="thimg">
+            <h6>Kalki</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+ </p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <a href="#"><button type="button" class="btn btn-danger w-75">watch now</button></a>
+          </div>
+        </div>
+
+        <div class="swiper-slide swiper-slide7">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMjRmYWM0OGEtN2E0Yi00M2M3LTg3MWItYjgwYTE3ZjQ4NTBhXkEyXkFqcGc@._V1_.jpg"
+            alt="Trending 7" data-bs-toggle="modal" data-bs-target="#netflixModal17">
+          <div class="th7" id="titu">
+            <img
+              src="https://i.ytimg.com/vi/ycBHF-qxlds/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLABiaacrKEohTIKKo4iku2CLj8s1Q"
+              id="thimg">
+            <h6>Rockey Aur Rani ki prem kahani</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+ </p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <a href="#"><button type="button" class="btn btn-danger w-75">watch now</button></a>
+          </div>
+
+        </div>
+        <div class="swiper-slide swiper-slide8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeKq4efH_4GAjBE_YtJaY7Cfx-4-qwg7vHBA&s"
+            alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal18">
+          <div class="th8" id="titu">
+            <img src="https://img.indiaforums.com/media/640x0/60/8708-kill-review.jpg" id="thimg">
+            <h6>Kill</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+ </p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <a href="#"><button type="button" class="btn btn-danger w-75">watch now</button></a>
+          </div>
+        </div>
+        <div class="swiper-slide swiper-slide9">
+          <img src="https://cdn.cinematerial.com/p/297x/m0mivufx/animal-indian-movie-poster-md.jpg?v=1700581925"
+            alt="Trending 9" data-bs-toggle="modal" data-bs-target="#netflixModal19">
+          <div class="th9" id="titu">
+            <img
+              src="https://i.ytimg.com/vi/Va0xBWay9fg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBFE3X7xwxZuJRYjfNS9txmkRmXXQ"
+              id="thimg">
+            <h6>Animal</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+ </p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <a href="#"><button type="button" class="btn btn-danger w-75">watch now</button></a>
+          </div>
+        </div>
+
+        <div class="swiper-slide swiper-slide10">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BZTEyYzVjYjEtNWYzZi00NWRhLTgyZjUtNDlkZjBiNWIxYTEwXkEyXkFqcGc@._V1_.jpg"
+            alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal20">
+          <div class="th10" id="titu">
+            <img
+              src="https://i.ytimg.com/vi/XyRKfM_6ZEM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDiiTgxz1_cAG-3UtmCFOGpZoqnrw"
+              id="thimg">
+            <h6>Stree2</h6>
+            <p class="pp">2024 . 1hr 45min . Hindi . U/A 16+ </p>
+            <p class="pp">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <a href="#"><button type="button" class="btn btn-danger w-75">watch now</button></a>
+          </div>
+          </a>
+        </div>
+      </div>
+      <!-- Navigation -->
+      <div class="nevi">
+        <div class="swiper-button-next "></div>
+        <div class="swiper-button-prev  "></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- 2. -->
+  <div class="trending-section">
+    <div class="trending-title text-white">Popular Web Series</div>
+    <div class="swiper-container1">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://m.media-amazon.com/images/S/pv-target-images/eac2e9efe6c4ece4ffd3bd06df335068d4e61f2f6eb0e93d97c832999f0a2574.jpg"
+            alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal31">
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BNGEzM2ZhYzItZDMzZS00MDI1LWE4ZGUtMDkzZTUwMmEzNWNiXkEyXkFqcGc@._V1_.jpg"
+            alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal32">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="https://upload.wikimedia.org/wikipedia/en/e/e7/Campus_Beats.jpg" alt="Trending 3"
+            data-bs-toggle="modal" data-bs-target="#netflixModal33">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://i0.wp.com/www.poptokki.com/wp-content/uploads/2024/01/402097999_1237091770487169_3676911052497600758_n-1.jpg?resize=692%2C1024&ssl=1"
+            alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal34">
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://st1.bollywoodlife.com/wp-content/uploads/2018/11/divyankatripathidahiya_43985277_141100750188670_3319996127271891593_n.jpg?impolicy=Medium_Widthonly&w=412&h=290"
+            alt="Trending 5" data-bs-toggle="modal" data-bs-target="#netflixModal35">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://rukminim2.flixcart.com/image/850/1000/l0h1g280/poster/e/p/v/small-mirzapur-web-series-poster-multicolor-photopaper-print-12-original-imagc95deggdcjgd.jpeg?q=20&crop=false"
+            alt="Trending 6" data-bs-toggle="modal" data-bs-target="#netflixModal36">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="https://i.pinimg.com/originals/cb/61/03/cb610365ad8830243ce88b1f98b63d20.webp" alt="Trending 7"
+            data-bs-toggle="modal" data-bs-target="#netflixModal37">
+        </div>
+
+        <div class="swiper-slide">
+          <a href="https://www.netflix.com/title/81681817">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BZTc3MmQ1YjctYWM4YS00YzFmLTg2YjQtNjEzODQ5ZWVjZjVmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+              alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal38">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://m.media-amazon.com/images/I/61HK1DZ+OML._AC_UF1000,1000_QL80_.jpg" alt="Trending 9"
+            data-bs-toggle="modal" data-bs-target="#netflixModal39">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BZGE4NDgyNGYtYmI1Zi00MzIwLWFhMzAtNTc4OTQ5Nzc0MjU5XkEyXkFqcGc@._V1_.jpg"
+            alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal40">
+        </div>
+      </div>
+      <!-- Navigation -->
+      <div class="nevi">
+        <div class="swiper-button-next "></div>
+        <!-- <div class="swiper-button-prev  "></div> -->
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- 3. -->
+  <div class="trending-section" id="tvshow">
+    <div class="trending-title text-white"> Trending Tv Shows</div>
+    <div class="swiper-container2">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://cdn.indiacast.com/syndication/wp-content/uploads/2024/02/23151717/ICS_Website_Mobile_Unique_Images_1152x1080_ML.jpg"
+            alt="Trending 1" data-bs-toggle="modal" data-bs-target="#netflixModal1">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMDc0OTEwYzktNDljZS00MGViLTg3MzctNDFkN2ViMTQ2YzI5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            alt="Trending 2" data-bs-toggle="modal" data-bs-target="#netflixModal2">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://cdn.indiacast.com/syndication/wp-content/uploads/2024/01/11171332/ICS_Website_Mobile_Unique_Images_1152x1080_MBT.jpg"
+            alt="Trending 3" data-bs-toggle="modal" data-bs-target="#netflixModal3">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BNWNiOTMxNjMtMGIzMi00ZTI5LTlkYmItZWZjY2RhMTJmYmYyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            alt="Trending 4" data-bs-toggle="modal" data-bs-target="#netflixModal4">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="https://media.themoviedb.org/t/p/w500/g6DQP5G2ivVgYpIvNaRJFcqCC8c.jpg" alt="Trending 5"
+            data-bs-toggle="modal" data-bs-target="#netflixModal5">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BYzNmZWRkMGQtZGU5NS00ODY0LTlmZjUtOTFiYmNjZjg4YzE0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            alt="Trending 6" data-bs-toggle="modal" data-bs-target="#netflixModal6">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://indianfilmhistory.com/admin_panel_new_dev/media/television/anokha-bandhan-hindi-television-show-indian-film-history.jpg"
+            alt="Trending 7" data-bs-toggle="modal" data-bs-target="#netflixModal7">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://m.media-amazon.com/images/M/MV5BMDRiMWI0YjItOWZjOC00Nzk1LWI3NGYtYjU3NGE2ZThiM2JkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+            alt="Trending 8" data-bs-toggle="modal" data-bs-target="#netflixModal8">
+        </div>
+
+        <div class="swiper-slide">
+          <img
+            src="https://cdn.indiacast.com/syndication/wp-content/uploads/2022/09/07104905/THAPKI-PYAR-KI-SEASON-1_1152W-X-1080H_Mobile-Unique-Page.jpg"
+            alt="Trending 9" data-bs-toggle="modal" data-bs-target="#netflixModal9">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="https://assets.gadgets360cdn.com/pricee/assets/product/202304/Balika-Vadhu_1680360843.jpg"
+            alt="Trending 10" data-bs-toggle="modal" data-bs-target="#netflixModal10">
+        </div>
+
+      </div>
+      <!-- Navigation -->
+      <div class="nevi">
+        <div class="swiper-button-next "></div>
+        <!-- <div class="swiper-button-prev  "></div> -->
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <!-- ......................................more reason to join------------------------------------------- -->
+  <div class="reasons">
+    <h3 class=" text-start fw-bold text-white pb-2">More Reasons To Join</h3>
+    <div class="reason-grid mt-2">
+      <div class="reason-item">
+        <h6>Exclusive Spectra Originals</h6>
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/008/506/479/small/hand-in-in-circle-care-icon-family-and-love-hand-holding-01-free-png.png"
+          id="imm">
+      </div>
+      <div class="reason-item">
+        <h6>Global & Regional Content</h6>
+        <img src="https://cdn-icons-png.flaticon.com/512/10083/10083481.png" height="50px" width="50px">
+
+      </div>
+      <div class="reason-item">
+        <h6>High-Quality Streaming</h6>
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/022/507/438/non_2x/red-heart-icon-free-download-free-png.png"
+          height="40px" width="40px">
+
+      </div>
+      <div class="reason-item">
+        <h6>For phone, tablet, laptop and TV</h6>
+        <img src="https://icones.pro/wp-content/uploads/2021/04/symbole-d-ordinateur-rouge.png" height="40px"
+          width="40px">
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ...................................................FAQ............................................ -->
+  <div class="container-fluid my-5 ms-2 me-2">
+    <div class="faq-section" id="faq">
+      <h3 class="ms-2 fw-bold text-white pb-3">Frequently Asked Questions</h3>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h5>What is Spectra ?</h5>
+            <span class="toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Spectra is an OTT (Over-The-Top) streaming platform that offers a wide range of movies, web series, TV
+              shows, and documentaries. It caters to all age groups and interests, and you can watch it on your phone,
+              tablet, laptop, or Smart TV.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h5> How much does Spectra cost ?</h5>
+            <span class="toggle text-light">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Spectra offers affordable plans starting at rs 199 per month . There are multiple options available such
+              as Basic , Standard and Premium plans , to suit different budgets and need</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h5>How does Spectra work ? </h5>
+            <span class="toggle text-light">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Spectra is a subscription-based streaming service You need to create an account and select a subscription
+              plan.
+              Once Subscribed you can access thousands of movies and shows anytime and anywhere , as long as you have an
+              internet connection
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h5>Do I need an account to watch Spectra ?</h5>
+            <span class="toggle text-light">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes , you need to create an account to watch content on Spectra . Having an account help personlize your
+              experience , track your watch history , and provide tailored recommendations based on your preferences.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h5>Can I try Spectra for free ?</h5>
+            <span class="toggle toggle-white">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, Spectra Offers a free trial for new users . this allows you to explore the plateform and its content
+              before committing to a subscription . </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h5>What kind of content is available on Spectra ?</h5>
+            <span class="toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Spectra Provides a variety of content,including movies, web series, tv shows etc. You will find content
+              across different genres like action, drama, comedy, thriller, romance and more as well as regional and
+              international titles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ..................................................................footer section--------------------------------- -->
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- Footer Links -->
+          <div class="col-md-3 footer-links">
+            <h3>Questions?</h3>
+            <ul>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="HelpCenter.html">Help Center</a></li>
+              <li><a href="TermOfUse.html">Terms of Use</a></li>
+              <li><a href="CorporateInformation.html">Corporate information</a></li>
+              <li><a href="cookiePreferances.html">Cookie Preferences</a></li>
+            </ul>
+          </div>
+          <!-- Footer Links -->
+          <div class="col-md-3 footer-links">
+            <h3>About</h3>
+            <ul>
+              <li><a href="signup.html">Account</a></li>
+              <li><a href="WayToWatch.html">Way To Watch</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="OnlyonNetflix.html">Only on Netflix</a></li>
+            </ul>
+          </div>
+          <!-- Footer Links -->
+          <div class="col-md-3 footer-links">
+            <h3>Social Media</h3>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
+              <a href="https://x.com/i/flow/login?lang=en" class="fab fa-twitter"></a>
+              <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
+              <a href="https://www.youtube.com/" class="fab fa-youtube"></a>
+            </div>
+          </div>
+          <!-- Footer Links -->
+          <div class="col-md-3 footer-links">
+            <h3>Contact Us</h3>
+            <ul>
+              <li><a href="contact.html">Email Support</a></li>
+              <li><a href="contact.html">Call Us</a></li>
+              <li><a href="contact.html">Address</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p class="fw-bold">© 2024 Arabic IT Media. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- -----------------------------modal Section -------------------------------------------- -->
+    <div class="mod">
+      <!-- -------------------------------------modal for trending top 10--------------------------- -->
+      <!-- <div class="modal fade" id="netflixModal11" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+        
+          <img src="https://api.tomorrowsindia.com/uploads/image/ADAps4KKt0GpwoY9H0eN_Do-Patti_TomorrowsIndia.jpg" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          
+          <h5>Do Patti</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal12" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+      
+          <img src="https://static.toiimg.com/thumb/msid-108623688,width-1280,height-720,imgsize-91478,resizemode-6,overlay-toi_sw,pt-32,y_pad-40/photo.jpg" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          
+          <h5>Bad Newz</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails2.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal13" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+        
+          <img src="https://img-cdn.thepublive.com/fit-in/1200x675/pratidin/media/post_attachments/pratidintime/2024-10-25/2rfcg1rc/Vicky-Vidya-Ka-Woh-Wala-Video-OTT-Release-Date-Platform-and-More.jpeg" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          
+          <h5>Vicky & Vidya Ka Wo Vala Video</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails3.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal14" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          
+          <img src="https://i.ytimg.com/vi/vO_wELU6pGM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDXGE-VfH3EeKDogld3OCWAa2KyeA" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          
+          <h5>Laila Majanu</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails4.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal15" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+  
+          <img src="https://i.ytimg.com/vi/e-aZAy1dDdg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCLVnEUi2IZBUYAlT5mIGhNrnfmug" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          
+          <h5>Tiger 3</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails5.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal16" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          
+          <img src="https://i.ytimg.com/vi/pcd4jdUDhKQ/maxresdefault.jpg" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          
+          <h5>Kalki</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails6.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal17" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+        
+          <img src="https://images.ottplay.com/images/rocky-aur-rani-kii-prem-kahaani-534-1690613800.jpeg?impolicy=ottplay-20210210&width=1200&height=675" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+        
+          <h5>Rocky Aur Rani Ki Prem Kahani</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails7.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal18" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          
+          <img src="https://images.ottplay.com/images/kill-poster-1724831967.jpg?impolicy=ottplay-20210210&width=1200&height=675" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+          
+          <h5>Kill</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails8.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal19" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+          
+          <img src="https://i.ytimg.com/vi/1mLV3-j0Mcg/maxresdefault.jpg" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+        
+          <h5>Animal</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails9.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="netflixModal20" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+        </div>
+        <div class="modal-body">
+
+          <img src="https://i.ytimg.com/vi/Bm9rgipvrxk/maxresdefault.jpg" alt="Amaran">
+        </div>
+        <div class="modal-footer-content">
+    
+          <h5>Stree 2</h5>
+          <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+          <p>
+            Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an emotional romance amidst his rise within the Indian army.
+          </p>
+          <a href="movieDetails10.html"><button class="get-started-btn">Get Started</button></a>
+          <p class="mt-2">Create or restart your membership</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+      <!-- ---------------------------------------------------modal for web series----------------------------------- -->
+      <div class="modal fade" id="netflixModal31" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://i.ytimg.com/vi/dRCwE0Bv148/maxresdefault.jpg" alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Our Secrate</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails21.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal32" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://qqcdnpictest.mxplay.com/pic/e8558117502621b4a44822b419a70e07/en/16x9/640x360/test_pic1725883611541.jpg"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Hi Vinus</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails22.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal33" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://m.media-amazon.com/images/S/pv-target-images/ebdd946425c375c6a5885039f96544ed07cfc7dc26ea5f9c120a9bb467411405.jpg"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Campus Beats</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails23.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal34" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BZDU2NDlmYzEtNzc0MS00ZGU0LWI2MjktZWFlNmI2YThkNDlhXkEyXkFqcGdeQXNvbG5vbXM@._V1_QL75_UX500_CR0,0,500,281_.jpg"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>My Demon</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails24.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal35" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://akamaividz2.zee5.com/image/upload/w_1755,h_987,c_scale,f_webp,q_auto:eco/resources/0-6-2022/list/1170x658withlogofe67a29be25b411d8471c38f3e597926.jpg"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Cold Lassi Aur Chiken Masala</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails25.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal36" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://rukminim2.flixcart.com/image/850/1000/l2jcccw0/poster/s/p/t/small-mirzapur-web-series-poster-multicolor-photo-paper-print-original-imagduxukaekmnda.jpeg?q=90&crop=false"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Mirzapur</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="https://www.netflix.com/in/title/81737430"><button class="get-started-btn">Get
+                  Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal37" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://zflix.click/upload/Queen%20of%20tears%20-%20Vj%20Ivo.jpeg" alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Queen Of Tears </h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="https://www.netflix.com/in/title/81737430"><button class="get-started-btn">Get
+                  Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal38" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://occ-0-8407-116.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABbqF4ca9ac76dcnTt7AaVUHAoLpEIpK0wVWxy8tmbM1fJi-B6h5U5iNTJlX7LbdMmuCfWljFj1lD139blwcveZtr_8ogjjScBkA.jpg?r=43a"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Hidden Love</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="https://www.netflix.com/in/title/81737430"><button class="get-started-btn">Get
+                  Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="netflixModal39" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://e1.pxfuel.com/desktop-wallpaper/372/174/desktop-wallpaper-aspirants-tvf-thumbnail.jpg"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Aspirents</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="https://www.netflix.com/in/title/81737430"><button class="get-started-btn">Get
+                  Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal40" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://v3img.voot.com/v3Storage/assets/16x9-1732628858883.jpg" alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>The Magic Of Shiri</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="https://www.netflix.com/in/title/81737430"><button class="get-started-btn">Get
+                  Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- -------------------------modal for tv show--------------------------------------------------------- -->
+
+      <div class="modal fade" id="netflixModal1" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://hindi.cdn.zeenews.com/hindi/sites/default/files/styles/zm_700x400/public/2024/02/27/2655316-mangal-lakshmi-2343.jpg?itok=QXOXfNtk"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Mangal Lakshmi</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails11.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal2" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://i.ytimg.com/vi/wk0si4MOzbo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDwMet6Wl3TEkk8-mdA9ahNVd5VZA"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Deewani</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails12.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal3" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://img.indiaforums.com/show/640x360/7/126-mera-balam-thanedar.jpg?c=1pPB73" alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Baalam Thanedar</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails13.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal4" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://i.ytimg.com/vi/5ybgop-3ZFc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAYrrdS3GW5JT7OYpEKv8BIkJnxOg"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Durga</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails14.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal5" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://i.pinimg.com/736x/54/e6/a3/54e6a3f2c9465070e6a7b29ef274c569.jpg" alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Ye Rista Kya Kahalata hai</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails15.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal6" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-110570724/110570724.jpg"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Gum Hai Kisi Ke pyar Me</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails16.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal7" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://upload.wikimedia.org/wikipedia/en/c/ce/Anokhaa_Bandhan.jpg" alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Anokha Bandhan</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails17.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="netflixModal8" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img
+                src="https://m.media-amazon.com/images/M/MV5BNTc5MDk2MGQtYWNjNS00NjQ5LTk5OGYtY2MyMjhiOWIxODdhXkEyXkFqcGc@._V1_QL75_UX498_.jpg"
+                alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Mishri</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails18.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal9" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://cdn.colorstv.com/wp-content/uploads/2019/04/thapki-pyar-ki_1555155867.jpg" alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Thapki pyar Ki</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails19.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="netflixModal10" tabindex="-1" aria-labelledby="netflixModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <!-- Background Image -->
+              <img src="https://static.toiimg.com/photo/msid-51133720/51133720.jpg?440510" alt="Amaran">
+            </div>
+            <div class="modal-footer-content">
+              <!-- Text Below Image -->
+              <h5>Balika Vadhu</h5>
+              <p>2024 • U/A 16+ • Movie • Action • Romance • Dramas</p>
+              <p>
+                Honor, love, and sacrifice collide as Major Mukund Varadarajan and his wife, Indhu, navigate an
+                emotional romance amidst his rise within the Indian army.
+              </p>
+              <a href="movieDetails20.html"><button class="get-started-btn">Get Started</button></a>
+              <p class="mt-2">Create or restart your membership</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <script>
+     let s1 = document.querySelector("#netflixModal10") ;
+     console.log(s1);
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 8,  // Show 8 slides at a time
+        spaceBetween: 10,  // Space between slides
+        loop: true,        // Loop slides
+        autoplay: {
+          delay: 2000,      // 2 seconds delay between slides
+          disableOnInteraction: false,
+        },
+        direction: 'horizontal',  // Horizontal sliding
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          // Mobile devices
+          320: {
+            slidesPerView: 2,  // Show 2 slides on small screens
+            spaceBetween: 6,   // Reduce spacing for smaller screens
+          },
+          480: {
+            slidesPerView: 2,  // Show 2 slides on small screens
+            spaceBetween: 5,   // Reduce spacing for smaller screens
+          },
+          // Tablets
+          768: {
+            slidesPerView: 3,  // Show 3 slides on medium screens
+            spaceBetween: 10,
+          },
+          // Small desktops
+          1024: {
+            slidesPerView: 5,  // Show 5 slides
+            spaceBetween: 10,
+          },
+          // Large desktops
+          1200: {
+            slidesPerView: 5,  // Default behavior (8 slides)
+            spaceBetween: 10,
+          },
+        },
+      });
+
+      // 2.
+      const swiper1 = new Swiper('.swiper-container2', {
+        slidesPerView: 8,  // Show 8 slides at a time
+        spaceBetween: 10,  // Space between slides
+        loop: true,        // Loop slides
+        //   autoplay: {
+        //     delay: 3000,      // 2 seconds delay between slides
+        //     disableOnInteraction: false,
+        //   },
+        direction: 'horizontal',  // Horizontal sliding
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          // Mobile devices
+          320: {
+            slidesPerView: 2,  // Show 2 slides on small screens
+            spaceBetween: 5,   // Reduce spacing for smaller screens
+          },
+          480: {
+            slidesPerView: 2,  // Show 2 slides on small screens
+            spaceBetween: 5,   // Reduce spacing for smaller screens
+          },
+          // Tablets
+          768: {
+            slidesPerView: 3,  // Show 3 slides on medium screens
+            spaceBetween: 10,
+          },
+          // Small desktops
+          1024: {
+            slidesPerView: 5,  // Show 5 slides
+            spaceBetween: 10,
+          },
+          // Large desktops
+          1200: {
+            slidesPerView: 5,  // Default behavior (8 slides)
+            spaceBetween: 10,
+          },
+        },
+      });
+
+
+      // 3.
+      const swiper2 = new Swiper('.swiper-container1', {
+        slidesPerView: 8,  // Show 8 slides at a time
+        spaceBetween: 10,  // Space between slides
+        loop: true,        // Loop slides
+        //   autoplay: {
+        //     delay: 3000,      // 2 seconds delay between slides
+        //     disableOnInteraction: false,
+        //   },
+        direction: 'horizontal',  // Horizontal sliding
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          // Mobile devices
+          320: {
+            slidesPerView: 2,  // Show 2 slides on small screens
+            spaceBetween: 5,   // Reduce spacing for smaller screens
+          },
+          480: {
+            slidesPerView: 2,  // Show 2 slides on small screens
+            spaceBetween: 5,   // Reduce spacing for smaller screens
+          },
+          // Tablets
+          768: {
+            slidesPerView: 3,  // Show 3 slides on medium screens
+            spaceBetween: 10,
+          },
+          // Small desktops
+          1024: {
+            slidesPerView: 5,  // Show 5 slides
+            spaceBetween: 10,
+          },
+          // Large desktops
+          1200: {
+            slidesPerView: 5,  // Default behavior (8 slides)
+            spaceBetween: 10,
+          },
+        },
+      });
+
+      document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+          const answer = question.nextElementSibling;
+          const toggle = question.querySelector('.toggle');
+
+          if (answer.style.maxHeight) {
+            answer.style.maxHeight = null;
+            toggle.textContent = '+';
+          } else {
+            document.querySelectorAll('.faq-answer').forEach(a => (a.style.maxHeight = null));
+            document.querySelectorAll('.toggle').forEach(t => (t.textContent = '+'));
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            toggle.textContent = '-';
+          }
+        });
+      });
+
+
+
+      function validateEmail() {
+        const emailInput = document.getElementById('email');
+        const getStartedButton = document.getElementById('getStarted');
+        const errorMessage = document.getElementById('error-message');
+
+        // Check if the email input is empty
+        if (emailInput.value.trim() !== "") {
+          getStartedButton.disabled = false; // Enable the button
+          errorMessage.style.display = "none"; // Hide error message
+        } else {
+          getStartedButton.disabled = true; // Disable the button
+          errorMessage.style.display = "inline"; // Show error message
+        }
+      }
+
+      // Function to handle button click and redirect to the desired page
+      function redirectToPage() {
+        // Link to redirect once the button is clicked
+        window.location.href = "get4.html";
+      }
+    </script>
+
+    <!-- https://codepen.io/technext/pen/PoprgzP -->
+
+</body>
+
+</html>

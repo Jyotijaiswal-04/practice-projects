@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background-image: url("https://cdn.pixabay.com/photo/2020/06/01/08/46/water-5245722_1280.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      body .weather-container {
+        height: 50vh;
+        width: 40%;
+        background-color: rgb(233, 233, 156, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+      h1 {
+        font-size: 30px;
+        text-align: center;
+        padding-bottom: 10px;
+        color: white;
+      }
+
+      input {
+        width: 250px;
+        padding: 10px;
+        margin-right: 10px;
+        border-radius: 50px;
+        border: none;
+      }
+      button {
+        width: 250px;
+        padding: 10px 20px;
+        border-radius: 50px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        border: none;
+        outline: none;
+      }
+      i {
+        font-size: 170px;
+        color: black;
+        margin-bottom: 20px;
+      }
+      span {
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather App</h1>
+      <div class="weather-container">
+        <input type="text" placeholder="enter city" id="city-input" />
+
+        <button id="search-btn">click</button>
+
+        <span id="temp-text">
+          <b>60</b>
+          <sup>0</sup>C
+          <i class="fad fa-clouds-sun"></i>
+        </span>
+      </div>
+    </div>
+
+    <script>
+      const button = document.getElementById("search-btn");
+      const input = document.getElementById("city-input");
+      const tempText = document.querySelector("#temp-text b");
+      const baseurl = "http://api.weatherapi.com/v1";
+      const apikey = "79466eda1a9642b68ec91944250702";
+
+      async function getdata(value) {
+        const url = `${baseurl}/current.json?key=${apikey}&q=${value}`; //current.json --end point  key=${apikey}&q=${value} --parameter(after ?)
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+        tempText.innerText = `${data.current.temp_f}`;
+      }
+      button.addEventListener("click", () => getdata(input.value));
+    </script>
+  </body>
+</html>

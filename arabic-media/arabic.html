@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-image: url(https://img.freepik.com/free-vector/abstract-vector-blue-mesh-background-chaotically-connected-points-polygons-flying-space-flying-debris-futuristic-technology-style-card-lines-points-circles-planes-futuristic-design_1217-653.jpg?semt=ais_hybrid);
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+/* ..................navbar................................................... */
+        header {
+            width: 100%;
+            background-color: whitesmoke;
+            color: black;
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5px;
+
+        }
+
+        .ul1 {
+            width: 80%;
+            display: flex;
+            justify-content: flex-end;
+
+            align-items: center;
+            list-style-type: none;
+            gap: 25px;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+/* ......................navbar end........................................... */
+        #sec1 {
+            width: 100%;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            /* align-items: center; */
+        }
+
+        .content1 {
+            /* height: 100px;
+            width: 100px;
+            background-color: red; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .img1 {
+            /* height: 100px;
+            width: 100px;
+            background-color:black; */
+            padding: 5px;
+            margin: 5px;
+        }
+
+        #a {
+            word-spacing: 20%;
+            /* width: 70%; */
+        }
+
+        .ig1 {
+            position: relative;
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            /* padding-left: 20px;  */
+            top: 150px;
+            left: 190px;
+
+
+        }
+
+        .ig2 {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            /* padding-left: 20px; */
+            top: 270px;
+            left: 200px
+        }
+
+        .ig3 {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            /* padding-left: 20px; */
+            top: 50px;
+
+
+        }
+
+        #sec2 {
+            width: 100%;
+            min-height: 100vh;
+            background-color: whitesmoke;
+            color: black;
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            padding: 20px;
+        }
+
+        #sec2 .p {
+            width: 100%;
+            letter-spacing: 7px;
+            word-spacing: 25px;
+            font-size: 95px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            margin: 20px;
+            padding-bottom: 20px;
+        }
+
+        .mainsec2 {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .imd1 {
+            /* height: 200px;
+            width: 100px;
+            border: 2px solid red; */
+            margin-bottom: 100px;
+            transition: 0.3 ease-in-out;
+
+        }
+        .imd1:hover{
+            transform: translateY(-10px);
+        
+        }
+
+        #ai1 {
+            position: relative;
+            height: 400px;
+            width: 300px;
+        }
+
+        #ai2 {
+            position: relative;
+            height: 400px;
+            width: 300px;
+            top: 60px;
+            right: 50px;
+            border-bottom-right-radius: 80px;
+            border-top-left-radius: 80px;
+
+        }
+
+        .imd2 {
+            height: 400px;
+            width: 500px;
+            /* border: 2px solid red; */
+            transition: 0.3 ease-in-out;
+
+        }
+        .imd2:hover{
+            transform: scale(1,1.1);
+        
+        }
+
+        .sp1 {
+
+            letter-spacing: 3px;
+            word-spacing: 10px;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: 'Snell Roundhand, cursive';
+            color: #0476D0;
+
+        }
+
+        .sp2 {
+            text-align: center;
+        }
+
+        /* ........................................swrvices........................ */
+        #sec3 .p1 {
+            width: 100%;
+            letter-spacing: 7px;
+            word-spacing: 25px;
+            font-size: 95px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            margin: 20px;
+            padding-bottom: 20px;
+        
+        }
+
+        .mainsec2 {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+            margin-left: 50px;
+            transition:all 2s  ;
+        }
+
+        .imd1 {
+            /* height: 200px;
+            width: 100px;
+            border: 2px solid red; */
+            margin-bottom: 100px;
+
+        }
+
+        #si1 {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            left: -95px;
+            /* transform: rotate(20deg); */
+            /* transform: scale(2, 3); */
+        }
+
+        .imd2 {
+            height: 430px;
+            width: 540px;
+            /* border: 2px solid red; */
+           
+        }
+        
+
+        .sp1 {
+
+            /* letter-spacing: 3px; */
+            /* word-spacing: 10px; */
+            font-size: 25px;
+            font-weight: bold;
+            font-family: 'Snell Roundhand, cursive';
+            color: #0476D0;
+
+        }
+
+        .sp2 {
+            text-align: center;
+            padding: 5px;
+            /* font-weight: bold; */
+        }
+
+        .sdiv1 {
+            display: flex;
+            gap: 60px;
+        }
+
+        .sdiv2 {
+            /* height: 200px;
+            width: 200px;
+            border: 2px solid red; */
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 10px;
+        }
+
+        .sdiv3 {
+            /* height: 270px;
+            width: 350px;
+            border: 2px solid red; */
+        }
+        /* .....................................secnew.................................... */
+    #sec4{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        transition: 0.3 ease-in-out;
+       
+    }
+    #sec4:hover{
+            /* transform: roteteY(-40px); */
+            /* box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.5); */
+        
+        }
+    .sd41{
+        height: 500px;
+        width: 445px;
+        /* border: 2px solid red; */
+        background-image: url(https://static.vecteezy.com/system/resources/previews/033/692/677/non_2x/group-of-business-people-sitting-in-a-row-at-the-office-business-concept-modern-business-conference-in-a-boardroom-full-rear-view-no-visible-faces-ai-generated-free-photo.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.8;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+     .sd41:hover{
+        transform: scale(1,1.1);
+
+    } 
+    .sd42{
+        height: 500px;
+        width: 455px;
+        /* border: 2px solid red; */
+        background-image: url(https://cdn.pixabay.com/photo/2017/08/06/02/20/people-2587775_1280.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+    .sd42:hover{
+        transform: scale(1,1.1);
+
+    } 
+    .sd43{
+        height: 500px;
+        width: 440px;
+        /* border: 2px solid red; */
+        background-image: url(https://img.freepik.com/premium-photo/subtle-shadows-success-dark-office-background-photo_960396-65121.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+    .sd43:hover{
+        transform: scale(1,1.1);
+
+    } 
+     /* .....................................secnew1.................................... */
+     #sec5{
+        width: 100%;
+        height: 60vh;
+        margin-top: 30px;
+        margin-bottom: 60px;
+        padding: 10px;
+        background-image: url(https://img.freepik.com/free-vector/realistic-technology-particle-background_23-2148409680.jpg?semt=ais_hybrid);
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.6;
+     }
+     /* ...........................................contact................................. */
+     /* General Styles */
+#sec6{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2 {
+  color: #007BFF;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h1 {
+  text-align: center;
+}
+
+.contact-container p {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Contact Content */
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.contact-form, .contact-details {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Contact Form */
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.contact-form button {
+  background: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background: #0056b3;
+}
+
+/* Contact Details */
+.contact-details h2 {
+  margin-bottom: 10px;
+}
+
+.contact-details p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+
+
+        /* ----------------------------------xfooter---------------------------------------- */
+        footer {
+            
+            width: 100%;
+            background-color: black;
+
+
+
+        }
+
+        .fdiv {
+            width: 100%;
+            min-height: 40vh;
+            display: flex;
+            background-color: black;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+        .ft1 {
+            height: 300px;
+            width: 250px;
+            /* border: 5px solid white; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ft2 {
+            height: 300px;
+            width: 250px;
+            /* border: 5px solid white; */
+        }
+
+        .ft3 {
+            height: 300px;
+            width: 250px;
+            /* border: 5px solid white; */
+        }
+
+        .se:hover {
+            background-color: aqua;
+        }
+
+        /* .s1{
+        width: 300px;
+        height: 100px;
+       } */
+
+
+
+
+
+
+
+
+
+        @media(max-width:400px) {
+            nav {
+                flex-direction: column;
+            }
+
+            ul {
+                justify-content: center;
+            }
+        }
+        /* -------------------------------------footer------------------------- */
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <nav>
+            <img src="https://arabicitmedia.com/wp-content/uploads/2024/08/Arabic-IT-Media-25-300x300-1.png"
+                height='50px' width="70px">
+            <ul class="ul1">
+                <li>
+                    <a href="arabic.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="services.html" >Services</a>
+
+                </li>
+                <li>
+                    <a href="blog.html">Blog</a>
+                </li>
+                <li>
+                    <a href="x">Contact</a>
+                </li>
+                <li>
+                    <span class=" se bg-warning p-3" id="i1">Call:022-35750090</span>
+                    <!-- <button class="btn btn-outline-info" type="submit">call</button> "Call:022-35750090" -->
+
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+    <section id="sec1">
+        <div class="content1">
+            <p class="h1 mt-5 p-5 text-white " id="a">Arabic IT Media</p><br>
+
+            <p class="h3 mt-5 text-white ">Our Services -</p><br>
+            <ul class="text-white">
+                <li class="">IT Development</li>
+                <li>Digital Marketing</li>
+                <li>Pre-Production</li>
+            </ul>
+        </div>
+        <div class="img1 d-flex">
+            <img src="https://media.istockphoto.com/id/1093508248/photo/modern-work-table-with-computer-laptop-and-cityscapes-view-from-window-business-concepts-ideas.jpg?s=1024x1024&w=is&k=20&c=hW-2RWXAD6aSkkU-A1GLcTn7CsbeMBZ_4lPUKeto5uc="
+                class="ig1">
+            <img src="https://media.istockphoto.com/id/1254063671/photo/smiling-diverse-ethnicity-employees-group-gather-looking-pointing-at-laptop.jpg?s=612x612&w=0&k=20&c=E0NG2i3VQ849MdwGohN508vAsb8h2UFw79rsKmoOong="
+                class="ig2">
+            <img src="https://timesproweb-static-backend-prod.s3.ap-south-1.amazonaws.com/Blog_Page_On_What_Is_Computer_Graphics_51938dc170.webp"
+                class="ig3">
+
+
+
+        </div>
+
+    </section>
+
+    <!-- about section -->
+
+    <section id="sec2">
+        <p class=" p h1 pt-4 text-info ">ABOUT US</p><br>
+        <div class="mainsec2">
+            <div class="imd1">
+                <img id="ai1"
+                    src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWljcm9zb2Z0JTIwb2ZmaWNlfGVufDB8fDB8fHww">
+                <img id="ai2"
+                    src="https://as1.ftcdn.net/v2/jpg/04/99/03/88/1000_F_499038868_gF2Y90o8rOIdpXkiAyGjy4bFsSBRA2cK.jpg">
+
+            </div>
+            <div class="imd2">
+                <h2 class="sp1">Committed to Digital <br>Innovation and Excellence .</h2>
+                <span class="sp2">We are a media organization that has a strong IT base and combines talent,
+                    professionalism, and marketing skills. We make our clients’ marketing visions a reality, guiding
+                    them flawlessly from concept to implementation and providing extraordinary results without the usual
+                    hurdles.<br><br>
+                    We specialize in marketing, corporate sales, media management, event management, and production and
+                    have a strong market presence and a well-known reputation. We offer bespoke, end-to-end IT solutions
+                    to clients in the media, advertising, and entertainment industries.</span>
+
+            </div>
+        </div>
+    </section>
+    <!-- .............services------------------------------ -->
+    <section id="sec3">
+        <p class=" p1 h1 p2-4 text-info ">SERVICES</p><br>
+        <div class="mainsec2">
+
+            <div class="imd2">
+                <h2 class="sp1">Providing expert web development digital marketing, and production solutions .</h2>
+                <span class="sp2">We are a dynamic media company with a robust IT foundation.<br><br>
+                    <div class="sdiv1">
+                        <div class="sdiv2 ">
+                            <!-- <i class="bi bi-laptop h-25"></i> -->
+                            <img src="https://static.vecteezy.com/system/resources/previews/010/366/243/non_2x/computer-icon-transparent-free-png.png"
+                                height="55px" width="55px">
+                            <img src="https://media.istockphoto.com/id/1251541478/vector/fingerprint-simple-black-icon-authentication-symbol-line-style-vector-illustration.jpg?s=612x612&w=0&k=20&c=UeGH8K4hEcC-Z7-xnsnN_ryGsFYnpgqzMjh0WjJ2BIA="
+                                height="70px" width="60px">
+                            <img src="https://img.freepik.com/premium-vector/simple-calendar-with-marked-date-icon_1076610-45331.jpg?semt=ais_hybrid"
+                                height="50px" width="54px">
+
+                        </div>
+                        <div class="sdiv3">
+                            <p class="h5 text-start text-info">Web Development</p>
+                            <p class="text-start ">Building responsive, user-friendly websites</p>
+                            <p class="h5 text-start text-info">Digital Marketing</p>
+                            <p class="text-start">Boosting online visibility and engagement.</p>
+                            <p class="h5 text-start text-info">Pre & Post Production</p>
+                            <p class="text-start">Crafting high-quality visual content .</p>
+                        </div>
+
+
+                    </div>
+
+
+
+            </div>
+            <div class="imd1">
+                <img id="si1"
+                    src="https://arabicitmedia.com/wp-content/uploads/2024/08/Arabic-IT-Media-25-300x300-1.png">
+
+
+            </div>
+        </div>
+        <button class="btn btn-info mb-5 p-2 rounded-pill">Click Here !</button>
+
+    </section>
+    <!-- .................................new....................................................... -->
+    <section id="sec4">
+        <div class="sd41">
+            <h1 class="ms-3 mb-5  mt-4 p2 text-info text-start fw-bold">01.</h1>
+            <h5 class="ms-3 mb-5 mt-4 p5 text-white text-start fw-bold">Create a functional design</h5>
+            <p class="ms-3 mb-5  mt-4 p2 text-start text-white fw-bold" >A website is an instrument. It should be used to achieve a certain aim. Visual components and text must be intelligently arranged whether they are used to generate sales or to express trust. The visitor must be naturally steered through the website to the intended objective.</p>
+        </div>
+        <div class="sd42">
+            <h1 class="ms-3 mb-5  mt-4 p2 text-info text-start fw-bold">02.</h1>
+            <h5 class="ms-3 mb-5 mt-4 p5 text-white text-start fw-bold">Adoptibility</h5>
+            <p class="ms-3 mb-5  mt-4 p2 text-start text-white fw-bold" >Mobile devices currently account for over 70% of all website traffic, and the figure is increasing year after year. When compared to the desktop experience, user behaviour and expectations on mobile devices are radically different. You can’t merely use the mobile version of the desktop version. As a result, we constantly create distinct mobile versions of our websites to ensure that they perform flawlessly on all devices.</p>
+        </div>
+        <div  class="sd43" >
+            <h1 class="ms-3 mb-5  mt-4 p2 text-info text-start fw-bold">03.</h1>
+            <h5 class="ms-3 mb-5 mt-4 p5 text-white text-start fw-bold">Minimalist Style</h5>
+            <p class="ms-3 mb-5  mt-4 p2 text-start text-white fw-bold" >In just 0.05 seconds, the typical user creates an opinion of your website, which affects whether they will remain or depart. First impressions are really important. As a result, we create simple and intuitive websites with the final aim in mind.</p>
+        </div>
+    </section>
+    <!-- .................................new1....................................................... -->
+     <section id="sec5">
+            <h1 class="text-end pe-5 me-5 text-white fw-bold">Empowering Your<br> Digital Vision... </h1>
+            <p class="text-end pe-5 me-5 text-white fw-bold">Unlock Success with Expert Web Development, Marketing, and <br>Production Solutions</p>
+            <p class="text-end pe-5 me-5"><button class="btn btn-info mb-5 p-3 rounded-pill">Click Here !</button></p>
+     </section>
+      <!-- .................................contact....................................................... -->
+       <section id="sec6">
+        <div class="contact-container">
+            <h1>Contact Us</h1>
+            <p>Feel free to reach out to us using the form below or through our contact details.</p>
+            <div class="contact-content">
+              <!-- Contact Form -->
+              <div class="contact-form">
+                <form action="#" method="post">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                  </div>
+                  <button type="submit">Send Message</button>
+                </form>
+              </div>
+        
+              <!-- Contact Details -->
+              <div class="contact-details">
+                <h2>Get in Touch</h2>
+                <p><strong>Phone:</strong> +1 234 567 890</p>
+                <p><strong>Email:</strong> contact@example.com</p>
+                <p><strong>Address:</strong> 123 Street Name, City, Country</p>
+
+       </section>
+
+
+    <footer>
+        <!-- <p>Author: Hege Refsnes<br>
+        <a href="mailto:hege@example.com">hege@example.com</a></p> -->
+        <div class="fdiv">
+            <div class="ft1"><img
+                    src="https://arabicitmedia.com/wp-content/uploads/2024/08/Arabic-IT-Media-25-300x300-1.png"
+                    height="150px" width="150px"></div>
+            <div class="ft2">
+                <p class="text-white text-center h1 pe-3">Quick Links</p><br><br>
+                <p><a class="text-info" href="arabic.html">Home</a></p>
+                <p><a class="text-info" href="about.html">About us</a></p>
+                <p><a class="text-info" href="services.html">Services</a></p>
+                <p><a class="text-info" href="blog.html">Blog</a></p>
+                <p><a class="text-info" href="contact.html">Contact</a></p>
+            </div>
+            <div class="ft3">
+                <p class="text-white text-center h1">Social Media</p><br><Br><br>
+                <span><a href="https://arabicitmedia.com/"><img
+                            src="https://img.icons8.com/?size=96&id=uLWV5A9vXIPu&format=png" height="30px" width="30px">
+                    </a></span>&nbsp;&nbsp;
+                <span><a href="https://arabicitmedia.com/"><img
+                            src="https://img.icons8.com/?size=96&id=32323&format=png" height="30px" width="30px">
+                    </a></span>&nbsp;&nbsp;
+                <span><a href="https://arabicitmedia.com/"><img
+                            src="https://img.icons8.com/?size=96&id=17949&format=png" height="30px" width="40px">
+                    </a></span>&nbsp;&nbsp;
+                <span><a href="https://arabicitmedia.com/"><img
+                            src="https://img.icons8.com/?size=96&id=19318&format=png" height="40px" width="40px">
+                    </a></span>
+
+            </div>
+
+        </div>
+        <div class=" s1 w-100 bg-blacl text-white text-center h-25">
+            <p>Copyright © 2024 arabicitmedia.com | Powered by arabicitmedia.com</p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

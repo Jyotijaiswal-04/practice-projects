@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Body and Background */
+body {
+    background-color: #fff;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.logo span {
+    color: #E50914;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.sign-in a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.form-box {
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+}
+
+.step-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.email-text {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.email-text strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Input Field */
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Forgot Password */
+.forgot-password {
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: #0071eb;
+    text-decoration: none;
+}
+
+.forgot-password:hover {/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Body and Background */
+body {
+    background-color: #fff;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.logo span {
+    color: #E50914;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.sign-in a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.form-box {
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+}
+
+.step-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.email-text {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.email-text strong {
+    font-weight: bold;
+    color: #000;
+}
+
+/* Input Field */
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Forgot Password */
+.forgot-password {
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    color: #0071eb;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.next-button {
+    background-color: #E50914;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.next-button:hover {
+    background-color: #b20710;
+}
+
+    text-decoration: underline;
+}
+
+/* Submit Button */
+.next-button {
+    background-color: #E50914;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.next-button:hover {
+    background-color: #b20710;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Netflix Header -->
+    <header>
+        <div class="logo">
+            <span>NETFLIX</span>
+        </div>
+        <div class="sign-in">
+            <a href="signInPage.html">Sign In</a>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <div class="container">
+        <div class="form-box">
+            <p class="step-text">STEP 2 OF 4</p>
+            <h1>Welcome back!<br>Joining Netflix is easy.</h1>
+            <p>Enter your password and you'll be watching in no time.</p>
+            
+            <p class="email-text">Email<br><strong>abc12@gmail.com</strong></p>
+
+            <!-- Password Input Form -->
+            <form>
+                <input type="password" id="password" placeholder="Enter your password" oninput="validatePassword()">
+                <a href="forgotpassword.html" class="forgot-password">Forgot your password?</a>
+               <!-- <a href="get3.html"> <button type="submit" class="next-button">Next</button></a> -->
+            </form>
+            <button type="submit" class="next-button" id="nextButton" disabled onclick="redirectToPage()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to validate the password input
+        function validatePassword() {
+          const passwordInput = document.getElementById('password');
+          const nextButton = document.getElementById('nextButton');
+          
+          // Check if the password field is not empty
+          if (passwordInput.value.trim() !== "") {
+            nextButton.disabled = false; // Enable the button if password is filled
+          } else {
+            nextButton.disabled = true; // Disable the button if password is empty
+          }
+        }
+        function redirectToPage() {
+    // Link to redirect once the button is clicked
+    window.location.href = "get3.html";
+  }
+      </script>
+</body>
+</html>
